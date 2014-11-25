@@ -1,18 +1,16 @@
 <?php
 	session_start();
 	require 'generalFunctions.php';
-	$last_id = 1;
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$title = security($_POST["title"]);
 
 		$db = new PDO('sqlite:../db/polls.db');
 		$dbPrepared = $db->prepare('INSERT INTO Poll(IDuser,Title,Votes) values(?,?,?)');
-		$last_id = $db->lastInsertId('ID');
+		$last_id = intval($db->lastInsertId('ID') + 1);
 		var_dump($last_id);
 		$dbPrepared->execute(array($_SESSION["ID"],$title,0));
 		$dbPrepared->fetchAll();
-
 
 		// Inserting options in database 
 		$db = new PDO('sqlite:../db/polls.db');
