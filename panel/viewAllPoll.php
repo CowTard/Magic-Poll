@@ -31,4 +31,4 @@
 		  </tbody>
 		</table>
 	</div>
-	<?php require 'dashboard_footer.php'; ?>
+<?php require 'dashboard_footer.php'; ?>

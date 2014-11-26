@@ -35,5 +35,4 @@
 	else {
 		header("Location: ..");
 	}
-
 ?>

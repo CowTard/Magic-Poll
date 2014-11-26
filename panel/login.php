@@ -14,13 +14,13 @@
 			session_start();
     		$_SESSION["ID"] = $item['Id'];
     		$_SESSION["Nickname"] = $item['Nickname'];
-    		header("Location: http://localhost:8888/LTW/Panel/dashboard.php");
+    		header("Location: dashboard.php");
 		} else {
-    		header("Location: http://localhost:8888/LTW/");
+    		header("Location: ..");
 		}
 	}
 	else {
 		echo "Sorry but something went wrong.";
-		header("Location: http://localhost:8888/LTW/");
+		header("Location: ..");
 	}
 ?>

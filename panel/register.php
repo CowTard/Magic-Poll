@@ -10,11 +10,10 @@
 		$dbPrepared = $db->prepare('INSERT INTO Users(nickname,email,password) values(?,?,?)');
 		$dbPrepared->execute(array($nickname,$email,$password));
 		$dbPrepared->fetchAll();
-		header("Location: http://localhost:8888/LTW");
+		header("Location: ..");
 	}
 	else {
 		echo "Sorry but something went wrong.";
-		header("Location: http://localhost");
+		header("Location: ../..");
 	}
-
 ?>

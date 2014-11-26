@@ -1,5 +1,4 @@
 <?php
-
 	function security($variavel){
 		$variavel = trim($variavel);
 		$variavel = stripslashes($variavel);
