@@ -11,7 +11,7 @@
 	<nav class="navbar navbar-default navbar-static-top" role="navigation">
 		<div class="container">
 	   		<ul class="nav navbar-nav">
-				<li><a href="#">Home</a></li>
+				<li><a href="dashboard.php">Dashboard</a></li>
 				<li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My polls<span class="caret"></span></a>
 		          <ul class="dropdown-menu" role="menu">
@@ -22,7 +22,7 @@
 		          </ul>
 		        </li>
 				<li><a href="#">Search polls</a></li>
-				<li><a href="#">Logout</a></li>
+				<li><a href="logout.php">Logout</a></li>
 			</ul>
 		</div>
 	</nav>
