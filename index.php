@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	if (isset($_SESSION['ID'])) header("Location: ./panel/dashboard.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -8,7 +12,6 @@
 	</head>
 
 	<body>
-
 		<nav class="navbar navbar-default navbar-static-top" role="navigation">
 		  	<div class="container">
 		   		<ul class="nav navbar-nav">
