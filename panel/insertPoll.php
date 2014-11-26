@@ -9,9 +9,12 @@
 		$db = new PDO('sqlite:../db/polls.db');
 		$dbPrepared = $db->prepare('INSERT INTO Poll(IDuser,Title,Votes) values(?,?,?)');
 		$dbPrepared->execute(array($_SESSION["ID"],$title,0));
-		$last_id = intval($db->lastInsertId()) + 1;
+		$last_id = intval($db->lastInsertId());
 		$dbPrepared->fetchAll();
 
+		$dbPrepared = $db->prepare('UPDATE Poll SET EncodedID = ? WHERE ID = ? ');
+		$dbPrepared->execute(array(sha1($last_id),$last_id));
+		$dbPrepared->fetch();
 		/*
 		 Inserting options in database 
 		*/

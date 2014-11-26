@@ -20,12 +20,16 @@
 
 	  		<?php foreach($item as $row) { ?>
 	  			<tr>
-	  			<td><?= $row["ID"] ?></td>
-	  			<td><?= $row["Title"] ?></td>
-	  			<td><?= $row["Votes"] ?></td>
-	  			<td> <button type="button" class="btn btn-default" aria-label="Left Align">
-  						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-					</button></td>
+	  			<td><?= $row['ID'] ?></td>
+	  			<td><?= $row['Title'] ?></td>
+	  			<td><?= $row['Votes'] ?></td>
+	  			<td><form action="viewPoll.php" method="GET">
+	  					<input type="hidden" name="id" value=<?= sha1($row['ID']) ?> >
+	  					<button type="submit" class="btn btn-default btn btn-success" aria-label="Left Align">
+  							<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						</button>
+					</form>
+				</td>
 	  			</tr>
 	  		<?php } ?>
 		  </tbody>
