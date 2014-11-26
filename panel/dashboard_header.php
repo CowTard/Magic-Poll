@@ -3,8 +3,8 @@
 	<head>
 		<title>MagicPoll - A bit of magic in your poll</title>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/main.css">
 	</head>
 
 	<body>
