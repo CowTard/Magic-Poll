@@ -1,8 +1,8 @@
 <?php
 	session_start();
 	if (!isset($_SESSION["ID"]) && empty($_SESSION["ID"])){
-		session_destroy();
 		header("Location: ..");
+		die;
 	}
 
 	require 'dashboard_header.php';
