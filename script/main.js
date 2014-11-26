@@ -1,13 +1,13 @@
 $(document).ready(function() {
-	$('#registerform').hide();
+	$('#register-form').hide();
 	
 	$('#register-link').click(function() {
-		$('#loginform').hide();
-		$('#registerform').show();
+		$('#login-form').hide();
+		$('#register-form').show();
 	});
 	
 	$('#login-link').click(function() {
-		$('#registerform').hide();
-		$('#loginform').show();
+		$('#register-form').hide();
+		$('#login-form').show();
 	});
 });

@@ -3,8 +3,8 @@
 	<head>
 		<title>MagicPoll - A bit of magic in your poll</title>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-		<link rel="stylesheet" href="./css/main.css">
+		<link rel="stylesheet" href="/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/css/main.css">
 	</head>
 
 	<body>
@@ -21,8 +21,8 @@
 		    </div>
 		</nav>
 
-		<div id="registerform" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"> 
-			<form class="form-horizontal" role="form" action="panel/register.php" method="POST">
+		<div id="register-form" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"> 
+			<form class="form-horizontal" role="form" action="/panel/register.php" method="POST">
 				<div class="form-group">
 			    	<label class="sr-only col-sm-2 control-label" for="Username">Username</label>
 			    	<input type="text" class="form-control" name="username" id="Username" placeholder="Username" required>
@@ -41,8 +41,8 @@
 			</form>
 		</div>
 		
-		<div id="loginform" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"> 
-			<form class="form-horizontal" role="form" action="./panel/login.php" method="POST">
+		<div id="login-form" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"> 
+			<form class="form-horizontal" role="form" action="/panel/login.php" method="POST">
 				<div class="form-group">
 			    	<label class="sr-only col-sm-2 control-label" for="Username">Username</label>
 			    	<input type="text" class="form-control" name="username" id="Username" placeholder="Username" required>
@@ -61,13 +61,13 @@
 
 		<div class="container">
 			<div class="footer">
-				<p class="text-center"> © MagicPoll 2014 <a href="www.fe.up.pt">MIEIC@FEUP</a> </p>
+				<p class="text-center">© MagicPoll 2014 <a href="www.fe.up.pt">MIEIC@FEUP</a></p>
 		    </div>
 		</div>
 
 		<!-- BETTER PERFORMANCE -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="./script/main.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+		<script src="/script/jquery-1.11.1.min.js"></script>
+		<script src="/script/main.js"></script>
+		<script src="/script/bootstrap.min.js"></script>
 	</body>
 </html>
