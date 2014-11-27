@@ -9,4 +9,8 @@ $(document).ready( function() {
 		$(finalLine).insertBefore('#creatingPollButtons');
 		numberNewOption += 1;
 	});
+
+	$( "#resetButton" ).click(function() {
+		$('input:radio').removeAttr('checked');
+	});
 });
