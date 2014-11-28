@@ -10,10 +10,11 @@
 		<table class="table table-hover">
 		  <thead>
 		  	<tr>
-		  	<th>#</th>
+		  	<th>ID</th>
 		  	<th>Title</th>
 		  	<th>Votes</th>
-		  	<th>#</th> 
+		  	<th>Voting</th>
+		  	<th>Editing</th>
 		  	</tr>
 		  </thead>
 		  <tbody>
@@ -25,8 +26,15 @@
 	  			<td><?= $row['Votes'] ?></td>
 	  			<td><form action="viewPoll.php" method="GET">
 	  					<input type="hidden" name="id" value=<?= sha1($row['ID']) ?> >
-	  					<button type="submit" class="btn btn-default btn btn-success" aria-label="Left Align">
+	  					<button type="submit" class="btn btn-default btn" aria-label="Left Align">
   							<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						</button>
+					</form>
+				</td>
+				<td><form action="editPoll.php" method="GET">
+	  					<input type="hidden" name="id" value=<?= sha1($row['ID']) ?> >
+	  					<button type="submit" class="btn btn-default btn" aria-label="Left Align">
+  							<span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
 						</button>
 					</form>
 				</td>

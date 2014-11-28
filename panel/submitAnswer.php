@@ -1,10 +1,21 @@
 <?php
-
+	session_start();
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
 		$db = new PDO('sqlite:../db/polls.db');
 
+		/*
+			 Registering the user choice. 
+		*/
 
-		// update votes in specific poll
+		$dbPrepared = $db->prepare('INSERT INTO Votes(IDPoll,IDuser) values(?,?)');
+		$dbPrepared->execute(array($_POST['id'],$_SESSION['ID']));
+		$dbPrepared->fetch();
+
+		/*
+			 update votes in specific poll
+		*/
+
 		$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE ID = ?');
 		$dbPrepared->execute(array($_POST['id']));
 		$poll = $dbPrepared->fetch();
@@ -14,12 +25,17 @@
 		$dbPrepared->execute(array($votes+1,$_POST['id']));
 		$dbPrepared->fetch();
 
-		// update votes in a specific option
+		/*
+			 update votes in a specific option
+		*/
+
 		$dbPrepared = $db->prepare('SELECT * FROM Options WHERE IDPoll = ?');
 		$dbPrepared->execute(array($_POST['id']));
 		$poll = $dbPrepared->fetchAll();
 
-		// get the number of the chosen option
+		/*
+			 get the number of the chosen option
+		*/
 		$matches = '123456789';
 		$opcaoEscolhida = filter_var($_POST['radioOption'], FILTER_SANITIZE_NUMBER_INT);
 		
