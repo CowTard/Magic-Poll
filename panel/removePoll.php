@@ -20,8 +20,6 @@
 	$dbPrepared->execute(array($_GET['id']));
 	$item = $dbPrepared->fetch();
 
-	var_dump($realID);
-
 	// APAGAR REGISTO NA TABELA OPTIONS
 
 	$dbPrepared = $db->prepare('DELETE FROM Options WHERE IDPoll = ?');
