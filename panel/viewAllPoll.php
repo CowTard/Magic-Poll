@@ -25,16 +25,16 @@
 	  			<td><?= $row['Title'] ?></td>
 	  			<td><?= $row['Votes'] ?></td>
 	  			<td><form action="viewPoll.php" method="GET">
-	  					<input type="hidden" name="id" value=<?= sha1($row['ID']) ?> >
-	  					<button type="submit" class="btn btn-default btn" aria-label="Left Align">
+	  					<input type="hidden" name="id" value=<?= '"'.sha1($row['ID']) . '"'?>  >
+	  					<button type="submit" class="btn btn-default btn-sm" aria-label="Left Align">
   							<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 						</button>
 					</form>
 				</td>
 				<td><form action="editPoll.php" method="GET">
-	  					<input type="hidden" name="id" value=<?= sha1($row['ID']) ?> >
-	  					<button type="submit" class="btn btn-default btn" aria-label="Left Align">
-  							<span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
+	  					<input type="hidden" name="id" value=<?= '"'.sha1($row['ID']) . '"'?> >
+	  					<button type="submit" class="btn btn-default btn-sm" aria-label="Left Align">
+  							<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 						</button>
 					</form>
 				</td>

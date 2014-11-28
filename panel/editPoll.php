@@ -39,12 +39,14 @@
 			  			</div>
 		  			<?php $option++ ;} ?>
 
-
-
-
 				<div class="center-block pull-right">
 					<button id="vote" type="submit" class="btn btn-primary btn-sm btn-success"> Save </button>
 					<button id="resetButton" type="button" class="btn btn-primary btn-sm btn-danger">Reset</button>
+					<td>
+	  					<button id="removePoll" value=<?= '"' . $_GET['id'] .'"'?> type="button" class="btn btn-default btn-sm" aria-label="Left Align">
+  							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+						</button>
+				</td>
 				</div>
 				</form>
 		  	</div>

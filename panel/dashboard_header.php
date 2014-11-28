@@ -3,8 +3,9 @@
 	<head>
 		<title>MagicPoll - A bit of magic in your poll</title>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="../css/bootstrap.min.css">
-		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/main.css">
+		<link rel="stylesheet" type="text/css" href="../css/sweet-alert.css">
 	</head>
 
 	<body>
@@ -17,8 +18,6 @@
 		          <ul class="dropdown-menu" role="menu">
 		            <li><a href="viewAllPoll.php">View polls</a></li>
 		            <li><a href="createPoll.php">Create polls</a></li>
-		            <li><a href="#">Edit polls</a></li>
-		            <li><a href="#">Remove polls</a></li>
 		          </ul>
 		        </li>
 				<li><a href="#">Search polls</a></li>

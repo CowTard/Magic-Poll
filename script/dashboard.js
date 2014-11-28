@@ -1,5 +1,6 @@
 window.numberNewOption = 3;
 
+
 $(document).ready( function() {
 
 	$( "#NewOption" ).click(function() {
@@ -12,5 +13,30 @@ $(document).ready( function() {
 
 	$( "#resetButton" ).click(function() {
 		$('input:radio').removeAttr('checked');
+	});
+
+	$('#removePoll').click(function() {
+		swal({   
+    	title: "Are you sure?",
+    	text: "You will lose all data related to this poll!",   
+    	type: "warning",   
+    	showCancelButton: true,   
+    	confirmButtonColor: "#DD6B55",   
+    	confirmButtonText: "Yes, delete it!",   
+    	closeOnConfirm: false }, 
+    	function(){
+    		$.ajax({
+    			url: 'removePoll.php',
+    			type: "get",
+    			data: 'id=' + $('#removePoll').val(),
+    			success:function(data){
+    				swal("Deleted!", "Your imaginary file has been deleted.", "success");
+    				$(location).attr('href','viewAllPoll.php');
+      			},
+      			error:function(data){
+	    			swal("Oops...", "Something went wrong :(", "error");
+      			}
+    		});
+    	});
 	});
 });
