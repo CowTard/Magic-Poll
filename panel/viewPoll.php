@@ -6,6 +6,7 @@
 	$dbPrepared->execute(array($_GET['id']));
 	$poll = $dbPrepared->fetch();
 	$indice = $poll['ID'];
+	$imageID = $poll['ImageName'];
 
 	$dbPrepared = $db->prepare('SELECT * FROM Options WHERE IDPoll = ?');
 	$dbPrepared->execute(array($indice));
@@ -30,6 +31,10 @@
 		  
 		  	<div class="panel-body">
 		  			
+		  		<?php if ( $imageID != '-1') { ?>
+		  			<img id="imagemParaVotacao" class="img-circle center-block" src=<?= '"'. '../uploadedImages/' . $imageID .'"'?>  alt=<?= $poll['Title'] ?> />
+		  		<?php } ?>
+
 		  		<form method="POST" action="submitAnswer.php">
 		  		<input type="hidden" name="id" value= <?= '"' . $indice . '"'?> >
 			  	<?php foreach($options as $row) { 
@@ -44,6 +49,7 @@
 				<div class="center-block pull-right">
 					<button id="vote" type="submit" class="btn btn-primary btn-sm btn-success" <?= $votacao ?>>Vote</button>
 					<button id="resetButton" type="button" class="btn btn-primary btn-sm btn-danger" <?= $votacao ?>>Reset</button>
+					<button id="showHideImage" type="button" class="btn btn-default btn-sm" >Hide Image</button>
 				</div>
 				</form>
 		  	</div>

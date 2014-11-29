@@ -7,12 +7,23 @@ $(document).ready( function() {
 		var line1 = '<div class="form-group"> <label class="sr-only col-sm-2 control-label" for="Option ' + numberNewOption + ' "> Option ' + numberNewOption + ' : </label>';
 		var line2 = '<input type="text" class="form-control" name="Option' + numberNewOption + '" id="Option' + numberNewOption + '" placeholder="Option ' + numberNewOption + '" required>';
 		var finalLine = line1 + line2;
-		$(finalLine).insertBefore('#creatingPollButtons');
+		$(finalLine).insertBefore('#inputImage');
 		numberNewOption += 1;
 	});
 
 	$( "#resetButton" ).click(function() {
 		$('input:radio').removeAttr('checked');
+	});
+
+	$( "#showHideImage" ).click(function() {
+		if ($(this).text() == 'Hide Image'){
+			$(this).text('Show Image');
+			$('#imagemParaVotacao').fadeOut(2000);
+		}
+		else {
+			$(this).text('Hide Image');
+			$('#imagemParaVotacao').hide().fadeIn(2000);
+		}
 	});
 
 	$('#removePoll').click(function() {
