@@ -26,6 +26,13 @@ $(document).ready( function() {
 		}
 	});
 
+	$('.pages').click( function(event) {
+		event.preventDefault();
+		var id = $(this).attr('id');
+		var link = 'search.php?page=' + id;
+		$(location).attr('href',link);
+	});
+
 	$('#removePoll').click(function() {
 		swal({   
     	title: "Are you sure?",

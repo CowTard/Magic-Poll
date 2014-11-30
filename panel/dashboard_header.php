@@ -20,7 +20,7 @@
 		            <li><a href="createPoll.php">Create polls</a></li>
 		          </ul>
 		        </li>
-				<li><a href="#">Search polls</a></li>
+				<li><a href="search.php">Search polls</a></li>
 				<li><a href="logout.php">Logout</a></li>
 			</ul>
 		</div>
