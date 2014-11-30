@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	require 'generalFunctions.php';
 	require 'dashboard_header.php';
   	$db = new PDO('sqlite:../db/polls.db');

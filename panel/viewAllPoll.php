@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	require 'dashboard_header.php';
   	$db = new PDO('sqlite:../db/polls.db');
 	$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE IDuser = ?');
@@ -43,4 +42,5 @@
 		  </tbody>
 		</table>
 	</div>
+	
 <?php require 'dashboard_footer.php'; ?>

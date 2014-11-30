@@ -59,6 +59,4 @@
 	else {
 		header("Location: ..");
 	}
-
-
 ?>

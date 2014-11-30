@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	require 'dashboard_header.php';
   	$db = new PDO('sqlite:../db/polls.db');
 	$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE EncodedID = ?');
@@ -56,6 +55,4 @@
 		</div>
 	</div>
 
-<?php
-	require 'dashboard_footer.php';
-?>
+<?php require 'dashboard_footer.php'; ?>
