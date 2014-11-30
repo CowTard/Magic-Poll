@@ -13,7 +13,6 @@
 	
 	// ELIMINAR IMAGEM ASSOCIADA
 	$imagename = $item['ImageName'];
-	var_dump($imagename);
 	unlink('../uploadedImages/' . $imagename);
 
 	// APAGAR REGISTO NA TABELA POLL
