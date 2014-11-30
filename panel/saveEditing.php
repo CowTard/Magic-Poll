@@ -11,7 +11,7 @@
 		$dbPrepared->fetch();
 		}
 
-	header('Location: viewAllPoll.php');
+	header('Location: viewAllPolls.php');
 	}
 	else header('Location: ..');
 
