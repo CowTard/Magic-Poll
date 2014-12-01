@@ -1,8 +1,8 @@
 <?php
 	require 'dashboard_header.php';
   	$db = new PDO('sqlite:../db/polls.db');
-	$dbPrepared = $db->prepare('SELECT * FROM Poll');
-	$dbPrepared->execute();
+	$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE IDuser = ?');
+	$dbPrepared->execute(array($_SESSION['ID']));
 	$polls = $dbPrepared->fetchAll();
 ?>
 
@@ -33,14 +33,12 @@
 					</form>
 				</td>
 				<td>
-					<?php if ($row['IDuser'] == $_SESSION['ID']) { ?>
 					<form action="editPoll.php" method="GET">
 	  					<input type="hidden" name="id" value="<?= sha1($row['ID']) ?>" >
 	  					<button type="submit" class="btn btn-default btn-sm" aria-label="Left Align">
   							<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 						</button>
 					</form>
-					<?php } ?>
 				</td>
 	  			</tr>
 	  		<?php } ?>

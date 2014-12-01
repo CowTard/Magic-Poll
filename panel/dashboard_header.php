@@ -23,7 +23,7 @@
 				<li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My polls<span class="caret"></span></a>
 		          <ul class="dropdown-menu" role="menu">
-		            <li><a href="viewAllPolls.php">View polls</a></li>
+		            <li><a href="viewMyPolls.php">View polls</a></li>
 		            <li><a href="createPoll.php">Create polls</a></li>
 		          </ul>
 		        </li>
