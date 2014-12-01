@@ -27,8 +27,7 @@
 		else{
 			session_start();
 			$_SESSION['errorReg'] = 'Oops... Something went wrong. Maybe it\' the username that it\'s already taken, or the passwords doesnt match.';
-			$_SESSION['page'] = 'register';
-    		header("Location: ..");
+    		header("Location: ../register.php");
     	}
 	}
 	else {

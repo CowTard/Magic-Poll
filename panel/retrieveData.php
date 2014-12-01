@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 		$html = '';
 		foreach ($teste as $row) {
-			$similar = similar_text($search_string, $row['Title']);
+			$similar = similar_text(strtoupper($search_string), strtoupper($row['Title']));
 			if ( ($similar * 100) / strlen($row['Title']) > 8){
 				$html .= '<li class="result">';
 				$html .= '<a href="viewpoll.php?id=' . $row['EncodedID'] . '">';

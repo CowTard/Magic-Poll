@@ -70,6 +70,13 @@ $(document).ready( function() {
 		$(location).attr('href',link);
 	});
 
+	$('.myPolls').click( function(event) {
+		event.preventDefault();
+		var id = $(this).attr('id');
+		var link = 'viewMyPolls.php?page=' + id;
+		$(location).attr('href',link);
+	});
+
 	$('#removePoll').click(function() {
 		swal({   
     	title: "Are you sure?",
