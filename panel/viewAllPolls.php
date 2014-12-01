@@ -5,6 +5,7 @@
 	$dbPrepared->execute();
 	$polls = $dbPrepared->fetchAll();
 ?>
+
 	<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
 		<table class="table table-hover">
 		  <thead>
@@ -25,7 +26,7 @@
 	  			<td><?= $row['Votes'] ?></td>
 	  			<td>
 					<form action="viewPoll.php" method="GET">
-	  					<input type="hidden" name="id" value=<?= '"'.sha1($row['ID']) . '"'?>  >
+	  					<input type="hidden" name="id" value="<?= sha1($row['ID']) ?>"  >
 	  					<button type="submit" class="btn btn-default btn-sm" aria-label="Left Align">
   							<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 						</button>
@@ -34,7 +35,7 @@
 				<td>
 					<?php if ($row['IDuser'] == $_SESSION['ID']) { ?>
 					<form action="editPoll.php" method="GET">
-	  					<input type="hidden" name="id" value=<?= '"'.sha1($row['ID']) . '"'?> >
+	  					<input type="hidden" name="id" value="<?= sha1($row['ID']) ?>" >
 	  					<button type="submit" class="btn btn-default btn-sm" aria-label="Left Align">
   							<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 						</button>
