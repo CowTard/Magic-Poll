@@ -18,6 +18,11 @@ function search() {
 
 $(document).ready( function() {
 
+	$('.pollimage').click(function() {
+		
+	});
+
+
 	$('div.icon').click(function(){
     	$('input#search').focus();
 	});

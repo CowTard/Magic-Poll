@@ -32,6 +32,7 @@
 		  	<tr>
 		  	<th>Index</th>
 		  	<th>Creator</th>
+		  	<th>Image</th>
 		  	<th>Title</th>
 			<th>Votes</th>
 		  	<th>Vote</th>
@@ -43,6 +44,11 @@
 	  			<tr>
 	  			<td><?= $indice ?></td>
 	  			<td><?= getName($row['IDuser']) ?></td>
+	  			<?php if ( $row['ImageName'] == '-1' ){ ?>
+	  				<td><img class="img-thumbnail pollimage" src="../uploadedImages/default.png" alt="default" width="24" height="24" />
+	  			<?php } else { ?>
+	  				<td><img class="img-thumbnail pollimage" src="<?= '../uploadedImages/' . $row['ImageName'] ?>" alt="<?= $poll['Title'] ?>" width="24" height="24"/>
+	  			<?php } ?>
 	  			<td><?= $row['Title'] ?></td>
 				<td><?= $row['Votes'] ?></td>
 	  			<td><form action="viewPoll.php" method="GET">
