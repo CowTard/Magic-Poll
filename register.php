@@ -12,6 +12,17 @@
 	</head>
 
 	<body>
+		<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		  	<div class="container">
+		   		<ul class="nav navbar-nav">
+		    		<li class="active"><a href=".">Home</a></li>
+		    		<li><a href="#">Features</a></li>
+		    		<li><a href="#">About us</a></li>
+		    		<li><a href="#">Support</a></li>
+		    	</ul>
+				<p class="navbar-text navbar-right"><a href="index.php" class="navbar-link" id="login-link">Login</a> or <a href="register.php" class="navbar-link" id="register-link">Register</a></p>
+		    </div>
+		</nav>
 
 		<div id="register-form" class="col-sm-6 col-md-4 col-md-offset-4">
 
@@ -54,11 +65,11 @@
 									<span class="input-group-addon">
 										<i class="glyphicon glyphicon-lock"></i>
 									</span>
-							    	<input type="password" class="form-control" name="passwordConfirmation" id="Password" placeholder="Password confirmation">
+							    	<input type="password" class="form-control" name="passwordConfirmation" id="Password" placeholder="Retype password">
 							    </div>
 							</div>
 							<div class="form-group">
-								<input type="submit" class="btn btn-lg btn-primary btn-block">
+								<button type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
 							</div>
 						</form>
 					</div>
