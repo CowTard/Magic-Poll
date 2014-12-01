@@ -55,7 +55,7 @@
 						    </div>
 						</div>
 						<div class="form-group">
-							<input type="submit" class="btn btn-lg btn-primary btn-block">
+							<button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
 						</div>
 					</form>
 				</div>
