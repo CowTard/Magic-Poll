@@ -70,10 +70,55 @@ $(document).ready( function() {
 		$(location).attr('href',link);
 	});
 
+	$('.searcbuttons').click( function(event){
+		event.preventDefault();
+		var atributo = $(this).attr('id');
+		var id = atributo.split('-');
+		var objetivo = id[0];
+		var pagina = id[1];
+		var numeroDePaginas = id[2];
+
+		if ( pagina > 0 && objetivo == 'retrocesso'){
+			pagina = parseInt(pagina) - 1;;
+			if (pagina == 0) var link = 'search.php';
+			else var link = 'search.php?page=' + pagina;
+			$(location).attr('href',link);
+		}
+		else if ( pagina < numeroDePaginas-1 && objetivo == 'adiantamento'){
+			pagina = parseInt(pagina) + 1;
+			var link = 'search.php?page=' + pagina;
+			$(location).attr('href',link);
+		}
+
+	});
+
+	$('.pagbuttons').click( function(event){
+		event.preventDefault();
+		var atributo = $(this).attr('id');
+		var id = atributo.split('-');
+		var objetivo = id[0];
+		var pagina = id[1];
+		var numeroDePaginas = id[2];
+
+		if ( pagina > 0 && objetivo == 'retrocesso'){
+			pagina = parseInt(pagina) - 1;;
+			if (pagina == 0) var link = 'viewMyPolls.php';
+			else var link = 'viewMyPolls.php?page=' + pagina;
+			$(location).attr('href',link);
+		}
+		else if ( pagina < numeroDePaginas-1 && objetivo == 'adiantamento'){
+			pagina = parseInt(pagina) + 1;
+			var link = 'viewMyPolls.php?page=' + pagina;
+			$(location).attr('href',link);
+		}
+
+	});
+
 	$('.myPolls').click( function(event) {
 		event.preventDefault();
 		var id = $(this).attr('id');
-		var link = 'viewMyPolls.php?page=' + id;
+		if (id == 0) var link = 'viewMyPolls.php';
+		else var link = 'viewMyPolls.php?page=' + id;
 		$(location).attr('href',link);
 	});
 

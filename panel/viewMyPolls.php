@@ -66,11 +66,20 @@
 		  </tbody>
 		</table>
 		<nav>
-	  		<ul class="pagination">
-			    <li><a href="#"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
+	  		<ul class="pagination pagination-sm">
+			    <li><a class='pagbuttons' id="<?= 'retrocesso-' . $page .'-'. $number_of_pages ?>" href="#"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
 			    <?php for ($i=0; $i < $number_of_pages; $i++) { ?>
-					<li><a class="myPolls" id="<?= $i ?>" href="#"><?= $i ?></a></li>
+			    	<?php if( !isset($_GET['page']) && $i==0) { ?>
+			    			<li class="active"><a class="myPolls" id="<?= $i ?>" href="#"><?= $i ?></a></li>
+			    	<?php } else {?>
+			    	<?php if( isset($_GET['page']) && $i == $_GET['page']) { ?>
+						<li class="active"><a class="myPolls" id="<?= $i ?>" href="#"><?= $i ?></a></li>
+			    	<?php } else { ?>
+						<li><a class="myPolls" id="<?= $i ?>" href="#"><?= $i ?></a></li>
+			    	<?php } ?>
+					<?php } ?>
 				<?php } ?>
+				<li><a class='pagbuttons' id="<?= 'adiantamento-' . $page .'-'. $number_of_pages ?>" href="#"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>
 	  		</ul>
 		</nav>
 	</div>
