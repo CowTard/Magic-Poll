@@ -52,7 +52,7 @@
 			$dbPrepared->fetchAll();
 			$i = $i + 1;
 		}
-		header("Location: createPoll.php");
+		header("Location: viewpoll.php?id=" . sha1($last_id));
 
 	}
 	else {

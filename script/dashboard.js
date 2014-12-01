@@ -1,7 +1,44 @@
 window.numberNewOption = 3;
 
+function search() {
+    var query= $('input#search').val();
+    $('b#search-string').html(query);
+    if(query !== ''){
+        $.ajax({
+            type: "POST",
+            url: "retrieveData.php",
+            data: { query: query },
+            cache: false,
+            success: function(html){
+                $("ul#results").html(html);
+            }
+        });
+    }return false;
+}
 
 $(document).ready( function() {
+
+	$('div.icon').click(function(){
+    	$('input#search').focus();
+	});
+
+	$("input#search").on("keyup", function(e) {
+    // Set Timeout
+	    clearTimeout($.data(this, 'timer'));
+
+	    // Set Search String
+	    var search_string = $(this).val();
+
+	    // Do Search
+	    if (search_string == '') {
+	        $("ul#results").fadeOut();
+	        $('h4#results-text').fadeOut();
+	    }else{
+	        $("ul#results").fadeIn();
+	        $('h4#results-text').fadeIn();
+	        $(this).data('timer', setTimeout(search, 50));
+	    };
+	});
 
 	$( "#NewOption" ).click(function() {
 		var line1 = '<div class="form-group"> <label class="sr-only col-sm-2 control-label" for="Option ' + numberNewOption + ' "> Option ' + numberNewOption + ' : </label>';

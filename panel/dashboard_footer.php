@@ -1,5 +1,5 @@
 		<div class="container">
-			<div class="footer">
+			<div class="footer ">
 				<p class="text-center">© MagicPoll 2014 <a href="www.fe.up.pt">MIEIC@FEUP</a></p>
 		    </div>
 		</div>

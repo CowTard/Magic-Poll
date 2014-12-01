@@ -16,6 +16,9 @@
     		$_SESSION["Nickname"] = $item['Nickname'];
     		header("Location: dashboard.php");
 		} else {
+			session_start();
+			$_SESSION['errorLog'] = 'Oops... Something went wrong. Check your username and password';
+			$_SESSION['page'] = 'login';
     		header("Location: ..");
 		}
 	}
