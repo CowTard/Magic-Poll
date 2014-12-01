@@ -44,7 +44,7 @@
 	  			<td><?= getName($row['IDuser']) ?></td>
 	  			<td><?= $row['Title'] ?></td>
 	  			<td><form action="viewPoll.php" method="GET">
-	  					<input type="hidden" name="id" value=<?= '"'.sha1($row['ID']) . '"'?>  >
+	  					<input type="hidden" name="id" value="<?= sha1($row['ID']) ?>">
 	  					<button type="submit" class="btn btn-default btn-sm" aria-label="Left Align">
   							<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 						</button>
@@ -57,10 +57,9 @@
 		<nav>
 	  		<ul class="pagination">
 			    <li><a href="#"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
-			    <? for ($i=0; $i < $number_of_pages; $i++) { ?>
-				    	<li><a class="pages" id=<?= '"'.$i .'"' ?> href="#"> <?= $i ?></a></li>
-				    </form>
-				<? } ?>
+			    <?php for ($i=0; $i < $number_of_pages; $i++) { ?>
+					<li><a class="pages" id="<?= $i ?>" href="#"><?= $i ?></a></li>
+				<?php } ?>
 	  		</ul>
 		</nav>
 	</div>

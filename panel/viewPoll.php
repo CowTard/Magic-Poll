@@ -13,7 +13,7 @@
 	$numberOfOption = 0;
 
 	/*
-		Verificar se o utiliador já votou nesta votação.
+		Verificar se o utilizador já votou nesta votação.
 	*/
 
 	$dbPrepared = $db->prepare('SELECT * FROM Votes WHERE IDPoll = ? AND IDUser = ?');
@@ -30,17 +30,20 @@
 		  
 		  	<div class="panel-body">
 		  			
-		  		<?php if ( $imageID != '-1') { ?>
-		  			<img id="imagemParaVotacao" class="img-circle center-block" src=<?= '"'. '../uploadedImages/' . $imageID .'"'?>  alt=<?= $poll['Title'] ?> />
+		  		<?php if ($imageID != '-1') { ?>
+		  			<img id="imagemParaVotacao" class="img-circle center-block" src="<?= '../uploadedImages/' . $imageID ?>" alt="<?= $poll['Title'] ?>" />
 		  		<?php } ?>
 
 		  		<form method="POST" action="submitAnswer.php">
 		  		<input type="hidden" name="id" value= <?= '"' . $indice . '"'?> >
 			  	<?php foreach($options as $row) { 
-			  			$id = '"' . 'radioOption' . $numberOfOption . '"' ; $value = '"' . 'option' . $numberOfOption . '"'; $numberOfOption += 1; ?>
+			  			$id = 'radioOption' . $numberOfOption;
+						$value = 'option' . $numberOfOption;
+						$numberOfOption += 1;
+				?>
 				    	<div class="radio">
 							<label>
-						    	<input type="radio" name="radioOption" id=<?= $id ?> value= <?= $value ?> <?= $votacao ?> > 
+						    	<input type="radio" name="radioOption" id="<?= $id ?>" value="<?= $value ?>" <?= $votacao ?>> 
 						    	<?= $row['OptionText'] ?>
 						  	</label>
 						</div>

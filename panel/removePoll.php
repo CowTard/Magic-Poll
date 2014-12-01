@@ -4,7 +4,6 @@
 	$db = new PDO('sqlite:../db/polls.db');
 
 	// COMO NAO E POSSIVEL REVERTER O HASH, OBTEM-SE O ID REAL ATRAVES DE UMA BUSCA A BASE DE DADOS.
-
 	$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE EncodedID = ?');
 	$dbPrepared->execute(array($_GET['id']));
 	$item = $dbPrepared->fetch();

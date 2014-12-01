@@ -17,14 +17,14 @@
 	$dbPrepared->execute();
 	$numUsers = count($dbPrepared->fetchAll());
 ?>
-<div class="row">
-	<div class="col-md-3 col-md-offset-3">
-		<h3>Statistics</h3>
-		<p><?php echo $numPolls . ' poll'; if ($numPolls != 1) echo 's have'; else echo ' has'; ?> been created.</p>
-		<p><?php echo $numVotes . ' vote'; if ($numVotes != 1) echo 's have'; else echo ' has'; ?> been cast.</p>
-		<p><?php echo $numUsers . ' user'; if ($numUsers != 1) echo 's have'; else echo ' has'; ?> registered.</p>
+
+	<div class="row">
+		<div class="col-md-3 col-md-offset-3">
+			<h3>Statistics</h3>
+			<p><?php echo $numPolls . ' poll'; if ($numPolls != 1) echo 's have'; else echo ' has'; ?> been created.</p>
+			<p><?php echo $numVotes . ' vote'; if ($numVotes != 1) echo 's have'; else echo ' has'; ?> been cast.</p>
+			<p><?php echo $numUsers . ' user'; if ($numUsers != 1) echo 's have'; else echo ' has'; ?> registered.</p>
+		</div>
 	</div>
-</div>	
-<?php
-	require 'dashboard_footer.php';
-?>
+
+<?php require 'dashboard_footer.php'; ?>
