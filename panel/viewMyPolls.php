@@ -13,8 +13,8 @@
 		  	<th>ID</th>
 		  	<th>Title</th>
 		  	<th>Votes</th>
-		  	<th>Voting</th>
-		  	<th>Editing</th>
+		  	<th>Vote</th>
+		  	<th>Edit</th>
 		  	</tr>
 		  </thead>
 		  <tbody>

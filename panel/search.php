@@ -30,10 +30,11 @@
 		<table class="table table-hover">
 		  <thead>
 		  	<tr>
-		  	<th>Indice</th>
+		  	<th>Index</th>
 		  	<th>Creator</th>
 		  	<th>Title</th>
-		  	<th>Voting</th>
+			<th>Votes</th>
+		  	<th>Vote</th>
 		  	</tr>
 		  </thead>
 		  <tbody>
@@ -43,6 +44,7 @@
 	  			<td><?= $indice ?></td>
 	  			<td><?= getName($row['IDuser']) ?></td>
 	  			<td><?= $row['Title'] ?></td>
+				<td><?= $row['Votes'] ?></td>
 	  			<td><form action="viewPoll.php" method="GET">
 	  					<input type="hidden" name="id" value="<?= sha1($row['ID']) ?>">
 	  					<button type="submit" class="btn btn-default btn-sm" aria-label="Left Align">
