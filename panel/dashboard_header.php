@@ -10,9 +10,6 @@
 	<head>
 		<title>MagicPoll - A bit of magic in your poll</title>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="../css/main.css">
-		<link rel="stylesheet" type="text/css" href="../css/sweet-alert.css">
 	</head>
 
 	<body>

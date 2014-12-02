@@ -5,6 +5,10 @@
 		</div>
 	</div>
 
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../css/sweet-alert.css">
+	
 	<script src="../script/jquery-1.11.1.min.js"></script>
 	<script src="../script/sweet-alert.js"></script> 
 	<script src="../script/dashboard.js"></script>
