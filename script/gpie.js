@@ -1,6 +1,5 @@
-
         google.load("visualization", "1", {packages:["corechart"]});
-        google.setOnLoadCallback(drawChart);
+
       	var url = window.location.href;
       	var urlsplitted = url.split('=');
       	var id = urlsplitted[1];
@@ -38,3 +37,4 @@
       			}
       		});
         };
+        
