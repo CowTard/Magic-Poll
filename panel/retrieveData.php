@@ -9,10 +9,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$db = new PDO('sqlite:../db/polls.db');
 		$dbPrepared = $db->prepare('SELECT * FROM Poll');
 		$dbPrepared->execute();
-		$teste = $dbPrepared->fetchAll();
+		$results = $dbPrepared->fetchAll();
 
 		$html = '';
-		foreach ($teste as $row) {
+		foreach ($results as $row) {
 			$similar = similar_text(strtoupper($search_string), strtoupper($row['Title']));
 			if ( ($similar * 100) / strlen($row['Title']) > 8){
 				$html .= '<li class="result">';

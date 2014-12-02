@@ -31,7 +31,7 @@
 		  	<div class="panel-body">
 		  			
 		  		<?php if ($imageID != '-1') { ?>
-		  			<img id="imagemParaVotacao" class="img-circle center-block" src="<?= '../uploadedImages/' . $imageID ?>" alt="<?= $poll['Title'] ?>" />
+		  			<img id="imagemParaVotacao" class="center-block" src="<?= '../uploadedImages/' . $imageID ?>" alt="<?= $poll['Title'] ?>" width="100px" height="100px"/>
 		  		<?php } ?>
 
 		  		<form method="POST" action="submitAnswer.php">
@@ -55,6 +55,7 @@
 				</div>
 				</form>
 		  	</div>
+		  	<div class="panel-footer"> <div id="piechart" class="center-block" style="width: 900px; height: 200px;"></div></div>
 		</div>
 	</div>
 

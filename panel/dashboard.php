@@ -33,7 +33,7 @@
 ?>
 
 	<div class="panel">
-		<div class="row panel-body">
+		<div class="panel-body">
 			<div class="col-md-8 col-md-offset-2">
 				<h2>Dashboard <span class="glyphicon glyphicon-dashboard"></span><span class="pull-right"><small>Welcome back, <?= $user['Nickname'] ?>!</small></span></h2>
 				<p class="text-justify">On <strong>MagicPoll</strong>, you can create beautiful and meaningful polls for when you're indecisive about what course of action to take next. Why not try and see what the other non-existent users will choose for you?</p>
@@ -43,7 +43,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div>
 		<div class="col-md-3 col-md-offset-3">
 			<h3>Overall Statistics <span class="glyphicon glyphicon-stats"></span></h3>
 			<p><?php echo $numPolls . ' poll'; if ($numPolls != 1) echo 's'; ?> created.</p>

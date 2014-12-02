@@ -18,13 +18,12 @@ function search() {
 
 $(document).ready( function() {
 
-	$('.pollimage').click(function() {
-		
-	});
-
-
 	$('div.icon').click(function(){
     	$('input#search').focus();
+	});
+
+	$('#piechart').click(function(){
+		
 	});
 
 	$("input#search").on("keyup", function(e) {

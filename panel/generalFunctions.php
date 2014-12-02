@@ -9,7 +9,7 @@
 
 	function getName($id){
 		$db = new PDO('sqlite:../db/users.db');
-		$dbPrepared = $db->prepare('SELECT Nickname FROM Users WHERE ID == ?');
+		$dbPrepared = $db->prepare('SELECT Nickname FROM Users WHERE ID == ? LIMIT 1');
 		$dbPrepared->execute(array($id));
 		$pollNum = $dbPrepared->fetchAll();
 		return $pollNum[0][0];
