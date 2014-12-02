@@ -28,12 +28,11 @@
 				<h3 class="panel-title text-center"><?= $poll['Title']; ?></h3>
 			</div>
 		  
-		  	<div class="panel-body">
-		  			
-		  		<?php if ($imageID != '-1') { ?>
+		  	<div class="panel-body">	
+		  		<?php if ($imageID != -1) { ?>
 		  			<img id="imagemParaVotacao" class="center-block" src="<?= '../uploadedImages/' . $imageID ?>" alt="<?= $poll['Title'] ?>" width="100px" height="100px"/>
 		  		<?php } ?>
-
+				
 		  		<form method="POST" action="submitAnswer.php">
 		  		<input type="hidden" name="id" value= <?= '"' . $indice . '"'?> >
 			  	<?php foreach($options as $row) { 
@@ -51,7 +50,9 @@
 				<div class="center-block pull-right">
 					<button id="vote" type="submit" class="btn btn-primary btn-sm btn-success" <?= $votacao ?>>Vote</button>
 					<button id="resetButton" type="button" class="btn btn-primary btn-sm btn-danger" <?= $votacao ?>>Reset</button>
+					<?php if ($imageID != -1) { ?>
 					<button id="showHideImage" type="button" class="btn btn-default btn-sm" >Hide Image</button>
+					<?php } ?>
 				</div>
 				</form>
 		  	</div>
