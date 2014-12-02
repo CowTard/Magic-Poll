@@ -11,7 +11,7 @@
 
 	if (isset($_GET['page'])) {
 		$page = $_GET['page'];
-		$indice = $page*$limit_per_page;
+		$indice = $page*$limit_per_page + 1;
 	}
 	else {
 		$page = 0;

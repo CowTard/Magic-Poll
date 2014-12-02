@@ -45,6 +45,8 @@
 					</div>
 				</form>
 			</div>
+
+			<div class="panel-footer">Note: We can't allow you to add more options. That would be unfair.</div>
 		</div>
 	</div>
 	
