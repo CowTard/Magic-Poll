@@ -18,13 +18,9 @@
 		$indice = 1;
 	}
 
-	$offset = $page*$limit_per_page + $limit_per_page;
-
-	$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE IDuser == ? LIMIT ?,?');
-	$dbPrepared->execute(array($_SESSION['ID'],$page*$limit_per_page,$offset));
+	$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE IDuser == ? LIMIT ?');
+	$dbPrepared->execute(array($_SESSION['ID'],$limit_per_page));
 	$item = $dbPrepared->fetchAll();
-
-
 ?>
 
 	<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">

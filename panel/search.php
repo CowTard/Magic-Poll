@@ -18,10 +18,8 @@
 		$indice = 1;
 	}
 
-	$offset = $page*$limit_per_page + $limit_per_page;
-
-	$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE IDuser != ? LIMIT ?,?');
-	$dbPrepared->execute(array($_SESSION['ID'],$page*$limit_per_page,$offset));
+	$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE IDuser != ? LIMIT ?');
+	$dbPrepared->execute(array($_SESSION['ID'],$limit_per_page));
 	$item = $dbPrepared->fetchAll();
 
 ?>
