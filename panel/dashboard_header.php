@@ -33,7 +33,6 @@
 						<li><a href="searchpoll.php">Quick search</a></li>
 						<li><a href="fullsearch.php">Full search</a></li>
 					</ul>
-				<li><a href="logout.php">Logout</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <span class="badge"> <?= getNotifications($_SESSION['ID']) ?> </span></a></li>
