@@ -36,7 +36,7 @@ $(document).ready( function() {
 			$.ajax({
 				type: "POST",
 				url: "getNotifications.php",
-				data: { nickname : 'root'},
+				data: { nickname : userNickname},
 				cache: false,
 				success: function(html){
 					$(".notificationBox").html(html);
