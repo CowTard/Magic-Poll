@@ -69,6 +69,9 @@
 							    </div>
 							</div>
 							<div class="form-group">
+								<div class="g-recaptcha" data-sitekey="6Ld7sf4SAAAAAJX-UAL3J-mbHcMrN2LEsz3xYac8"></div>
+							</div>
+							<div class="form-group">
 								<button type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
 							</div>
 						</form>
@@ -85,5 +88,6 @@
 		<!-- BETTER PERFORMANCE -->
 		<script src="./script/jquery-1.11.1.min.js"></script>
 		<script src="./script/bootstrap.min.js"></script>
+		<script src="https://www.google.com/recaptcha/api.js"></script>
 	</body>
 </html>
