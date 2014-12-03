@@ -22,9 +22,31 @@ $(document).ready( function() {
     	$('input#search').focus();
 	});
 
-	$('#piechart').click(function(){
-		
+	$('.notification').hover( function(){  
+		$(".notification").dropdown();
 	});
+
+	/*
+	 SE APENAS CONTIVESSE .CLICK DAVA UM ERRO CONHECIDO DO BOOTSTRAP O QUE OBRIGARIA O UTILIZADOR A CLICAR DUAS VEZES.
+	*/
+
+	$('.notification').click(function(){
+		var userNickname = $('.nickname').text();
+		if (userNickname != ''){
+			$.ajax({
+				type: "POST",
+				url: "getNotifications.php",
+				data: { nickname : 'root'},
+				cache: false,
+				success: function(html){
+					$(".notificationBox").html(html);
+					$(".notification").dropdown();
+				}
+
+			});
+		} return false;
+	});
+
 
 	$("input#search").on("keyup", function(e) {
     // Set Timeout

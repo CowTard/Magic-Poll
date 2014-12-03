@@ -10,7 +10,7 @@
 	<div class="col-md-2 col-md-offset-4">
 		<input id="search" type="text" />
 		
-		<ul id="results" class="dropdown-menu" role="menu"></ul>
+		<ul id="results" class="dropdown-menu quicksearch" role="menu"></ul>
 	</div>
 
 <?php

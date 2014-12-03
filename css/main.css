@@ -42,3 +42,17 @@ span.glyphicon-envelope {
 span.badge {
   font-size: 0.8em;
 }
+
+.notificationBox {
+  width: 350px;
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+}
+
+.quicksearch {
+  width: 350px;
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+}

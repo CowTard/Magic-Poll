@@ -24,7 +24,7 @@
       			success: function(data)
             {
       				result = data;
-              //alert(result.toSource());
+              
               var graphData = google.visualization.arrayToDataTable(JSON.parse(result));
 
               var options = {

@@ -84,7 +84,6 @@
 
 		<!-- BETTER PERFORMANCE -->
 		<script src="./script/jquery-1.11.1.min.js"></script>
-		<script src="./script/main.js"></script>
 		<script src="./script/bootstrap.min.js"></script>
 	</body>
 </html>

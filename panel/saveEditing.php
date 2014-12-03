@@ -26,9 +26,10 @@
 				$ID_arrays[] = $row['IDUser'];
 			}
 
-		$dbPrepared = $db->prepare('INSERT INTO Notifications(IDPoll,IDUser) values(?,?)');
+		$message = 'The poll "' . $_POST['title'] . '" was changed. ';
+		$dbPrepared = $db->prepare('INSERT INTO Notifications(IDPoll,IDUser,Message) values(?,?,?)');
 		foreach ($ID_arrays as $arrayOfuserID) {
-			$dbPrepared->execute(array($_POST['idPoll'],$arrayOfuserID));
+			$dbPrepared->execute(array($_POST['idPoll'],$arrayOfuserID,$message));
 			$dbPrepared->fetch();
 		}
 	
