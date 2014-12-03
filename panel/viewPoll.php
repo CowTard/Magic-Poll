@@ -6,6 +6,7 @@
 	$poll = $dbPrepared->fetch();
 	$indice = $poll['ID'];
 	$imageID = $poll['ImageName'];
+	$creatorID = $poll['IDuser'];
 
 	$dbPrepared = $db->prepare('SELECT * FROM Options WHERE IDPoll = ?');
 	$dbPrepared->execute(array($indice));
@@ -15,11 +16,12 @@
 	/*
 		Verificar se o utilizador já votou nesta votação.
 	*/
-
 	$dbPrepared = $db->prepare('SELECT * FROM Votes WHERE IDPoll = ? AND IDUser = ?');
-	$dbPrepared->execute(array($indice,$_SESSION['ID']));
+	$dbPrepared->execute(array($indice, $_SESSION['ID']));
 	$votos = $dbPrepared->fetch();
 	!empty($votos) ? $votacao = 'disabled' : $votacao = '';
+	
+	$canSeeResults = $creatorID == $_SESSION['ID'] || !empty($votos);
 ?>
 
 	<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
@@ -56,7 +58,13 @@
 				</div>
 				</form>
 		  	</div>
-		  	<div class="panel-footer"> <div id="piechart" class="center-block" style="width: 900px; height: 200px;"></div></div>
+		  	<div class="panel-footer">
+			<?php if ($canSeeResults) { ?>
+				<div id="piechart" class="center-block" style="width: 900px; height: 200px;"></div>
+			<?php } else { ?>
+				<h4 class="text-center">You haven't voted yet! You'll have to do that before you can see the poll results.</h4>
+			<?php } ?>
+			</div>
 		</div>
 	</div>
 
