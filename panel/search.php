@@ -84,10 +84,4 @@
 		</nav>
 	</div>
 
-	<script type="text/javascript">
-	$(document).ready(function(){
-		$('[data-toggle="tooltip"]').tooltip();
-	});
-	</script>
-
 <?php require 'dashboard_footer.php'; ?>

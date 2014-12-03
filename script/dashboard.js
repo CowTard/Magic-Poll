@@ -22,6 +22,8 @@ $(document).ready( function() {
     	$('input#search').focus();
 	});
 
+	$('[data-toggle="tooltip"]').tooltip();
+
 	$('.notification').hover( function(){  
 		$(".notification").dropdown();
 	});
