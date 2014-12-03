@@ -38,7 +38,12 @@
 		  </thead>
 		  <tbody>
 
-	  		<?php foreach($item as $row) { ?>
+	  		<?php foreach($item as $row) {
+				$dbPrepared = $db->prepare('SELECT * FROM Votes WHERE IDPoll = ? AND IDUser = ? LIMIT 1');
+				$dbPrepared->execute(array($row['ID'], $_SESSION['ID']));
+				$userVote = $dbPrepared->fetch();
+				$alreadyVoted = !empty($userVote);
+			?>
 	  			<tr>
 	  			<td><?= $indice ?></td>
 	  			<td><?= getName($row['IDuser']) ?></td>
@@ -51,7 +56,7 @@
 				<td><?= $row['Votes'] ?></td>
 	  			<td><form action="viewPoll.php" method="GET">
 	  					<input type="hidden" name="id" value="<?= sha1($row['ID']) ?>">
-	  					<button type="submit" class="btn btn-default btn-sm" aria-label="Left Align">
+	  					<button type="submit" class="btn btn-default btn-sm" aria-label="Left Align" <?php if ($alreadyVoted) { ?> data-toggle="tooltip" data-placement="top" title="You have already voted in this poll." <?php } ?> >
   							<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 						</button>
 					</form>
@@ -78,5 +83,11 @@
 	  		</ul>
 		</nav>
 	</div>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('[data-toggle="tooltip"]').tooltip();
+	});
+	</script>
 
 <?php require 'dashboard_footer.php'; ?>
