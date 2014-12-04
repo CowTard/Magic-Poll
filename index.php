@@ -23,9 +23,13 @@
 				<p class="navbar-text navbar-right"><a href="index.php" class="navbar-link" id="login-link">Login</a> or <a href="register.php" class="navbar-link" id="register-link">Register</a></p>
 		    </div>
 		</nav>
+		
+		<div class="col-md-12 text-center">
+			<p><img src="images/logo.png" alt="Site Logo" /></p>
+			<h1>MagicPoll</h1>
+		</div>
 
 		<div id="login-form" class="col-sm-6 col-md-4 col-md-offset-4">
-
 		<?php if( isset($_SESSION['errorLog'])) {
 			echo '<div id="error" class="alert alert-danger" role="alert"> ' . $_SESSION['errorLog'] . '</div>'; 
 			unset($_SESSION['errorLog']);
@@ -33,7 +37,7 @@
 		?>
 			<div class="panel panel-default">
 	  			<div class="panel-heading">
-	    			<h3 class="panel-title">Sign in </h3>
+	    			<h3 class="panel-title">Sign in</h3>
 	  			</div>
 			<div class="panel-body">
 				<div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"> 
@@ -74,5 +78,6 @@
 		<!-- BETTER PERFORMANCE -->
 		<script src="./script/jquery-1.11.1.min.js"></script>
 		<script src="./script/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/sitename.css" />
 	</body>
 </html>

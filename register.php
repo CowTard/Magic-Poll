@@ -23,9 +23,13 @@
 				<p class="navbar-text navbar-right"><a href="index.php" class="navbar-link" id="login-link">Login</a> or <a href="register.php" class="navbar-link" id="register-link">Register</a></p>
 		    </div>
 		</nav>
+		
+		<div class="col-md-12 text-center">
+			<p><img src="images/logo.png" alt="Site Logo" /></p>
+			<h1>MagicPoll</h1>
+		</div>
 
 		<div id="register-form" class="col-sm-6 col-md-4 col-md-offset-4">
-
 		<?php if( isset($_SESSION['errorReg'])) {
 			echo '<div id="error" class="alert alert-danger" role="alert"> ' . $_SESSION['errorReg'] . '</div>'; 
 			unset($_SESSION['errorReg']);
@@ -89,5 +93,6 @@
 		<script src="./script/jquery-1.11.1.min.js"></script>
 		<script src="./script/bootstrap.min.js"></script>
 		<script src="https://www.google.com/recaptcha/api.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/sitename.css" />
 	</body>
 </html>
