@@ -23,13 +23,19 @@
 	
 	$dbPrepared = $pollDb->prepare('SELECT * FROM Poll WHERE IDuser = ?');
 	$dbPrepared->execute(array($_SESSION['ID']));
-	$numMyPolls = count($dbPrepared->fetchAll());
+	$myPolls = $dbPrepared->fetchAll();
+	$numMyPolls = count($myPolls);
 	
 	$dbPrepared = $pollDb->prepare('SELECT * FROM Votes WHERE IDUser = ?');
 	$dbPrepared->execute(array($_SESSION['ID']));
 	$numMyVotes = count($dbPrepared->fetchAll());
 	
-	$numVotesMyPolls = 'UNOWN';
+	$numVotesMyPolls = 0;
+	foreach ($myPolls as $myPoll) {
+		$dbPrepared = $pollDb->prepare('SELECT * FROM Votes WHERE IDPoll = ?');
+		$dbPrepared->execute(array($myPoll['ID']));
+		$numVotesMyPolls += count($dbPrepared->fetchAll());
+	}
 ?>
 
 	<div class="panel">
@@ -46,15 +52,15 @@
 	<div>
 		<div class="col-md-3 col-md-offset-3">
 			<h3>Overall Statistics <span class="glyphicon glyphicon-stats"></span></h3>
-			<p><?php echo $numPolls . ' poll'; if ($numPolls != 1) echo 's'; ?> created.</p>
-			<p><?php echo $numVotes . ' vote'; if ($numVotes != 1) echo 's'; ?> cast.</p>
-			<p><?php echo $numUsers . ' user'; if ($numUsers != 1) echo 's'; ?> registered.</p>
+			<p><?= $numPolls . ' poll' . ($numPolls != 1 ? 's' : '') ?> created.</p>
+			<p><?= $numVotes . ' vote' . ($numVotes != 1 ? 's' : '') ?> cast.</p>
+			<p><?= $numUsers . ' user' . ($numUsers != 1 ? 's' : '') ?> registered.</p>
 		</div>
 		<div class="col-md-3 col-md-offset-1">
 			<h3>Personal Statistics <span class="glyphicon glyphicon-user"></span></h3>
-			<p><?php echo $numMyPolls . ' poll'; if ($numMyPolls != 1) echo 's'; ?> created by you.</p>
-			<p><?php echo $numMyVotes . ' vote'; if ($numMyVotes != 1) echo 's'; ?> cast by you.</p>
-			<p><?php echo $numVotesMyPolls . ' vote'; if ($numVotesMyPolls != 1) echo 's'; ?> cast on your polls.</p>
+			<p><?= $numMyPolls . ' poll' . ($numMyPolls != 1 ? 's' : '') ?> created by you.</p>
+			<p><?= $numMyVotes . ' vote' . ($numMyVotes != 1 ? 's' : '') ?> cast by you.</p>
+			<p><?= $numVotesMyPolls . ' vote' . ($numVotesMyPolls != 1 ? 's' : '') ?> cast on your polls.</p>
 		</div>
 	</div>
 
