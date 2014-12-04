@@ -2,7 +2,9 @@
 
       	var url = window.location.href;
       	var urlsplitted = url.split('=');
-      	var id = urlsplitted[1];
+      	var parameters = urlsplitted[1];
+        var temp = parameters.split('&');
+        var id = temp[0];
         var chart = null;
 
         $(document).ready(function()

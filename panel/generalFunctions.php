@@ -1,4 +1,15 @@
 <?php
+	
+	if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['secretID'])) {
+		$db = new PDO('sqlite:../db/polls.db');
+		$dbPrepared = $db->prepare('UPDATE Poll SET Closed = ? WHERE EncodedID = ? ');
+		$dbPrepared->execute(array('1',$_POST['secretID']));
+		$dbPrepared->fetch();
+		echo 'sucess';
+	}
+
+
+
 	function security($variavel){
 		$variavel = trim($variavel);
 		$variavel = stripslashes($variavel);
@@ -7,19 +18,75 @@
 		return $variavel;
 	}
 
+	// return the nickname of a member who has as id $id
 	function getName($id){
 		$db = new PDO('sqlite:../db/users.db');
-		$dbPrepared = $db->prepare('SELECT Nickname FROM Users WHERE ID == ? LIMIT 1');
+		$dbPrepared = $db->prepare('SELECT * FROM Users WHERE ID = ?');
 		$dbPrepared->execute(array($id));
-		$pollNum = $dbPrepared->fetchAll();
-		return $pollNum[0][0];
+		$pollNum = $dbPrepared->fetch();
+		return $pollNum['Nickname'];;
 	}
 
+	// return the number of notifications a member have.
 	function getNotifications($id){
 		$db = new PDO('sqlite:../db/polls.db');
 		$dbPrepared = $db->prepare('SELECT COUNT(*) FROM Notifications WHERE IDUser = ?');
 		$dbPrepared->execute(array($id));
 		$notificNumber = $dbPrepared->fetch();
 		return $notificNumber[0][0];
+	}
+
+	// return the encodedid of the poll with $idPoll as ID.
+	function getPollEncodedID($idPoll){
+		$db = new PDO('sqlite:../db/polls.db');
+		$dbPrepared = $db->prepare('SELECT EncodedID FROM Poll WHERE ID = ?');
+		$dbPrepared->execute(array($idPoll));
+		$encID = $dbPrepared->fetch();
+		return $encID[0][0];
+	}
+
+	// return the image of the poll with $idPoll as ID.
+	function getImageName($idPoll){
+		$db = new PDO('sqlite:../db/polls.db');
+		$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE ID = ?');
+		$dbPrepared->execute(array($idPoll));
+		$ImageID = $dbPrepared->fetch();
+		return $ImageID['ImageName'];
+	}
+
+	// return the title of the poll with $idPoll as ID.
+	function getTitle($idPoll){
+		$db = new PDO('sqlite:../db/polls.db');
+		$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE ID = ?');
+		$dbPrepared->execute(array($idPoll));
+		$title = $dbPrepared->fetch();
+		return $title['Title'];
+	}
+
+	//return the number of votes of the poll with $idPoll as ID.
+	function getVotes($idPoll){
+		$db = new PDO('sqlite:../db/polls.db');
+		$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE ID = ?');
+		$dbPrepared->execute(array($idPoll));
+		$title = $dbPrepared->fetch();
+		return $title['Votes'];
+	}
+
+	// return the id of the creator of the poll.
+	function getCreator($idPoll){
+		$db = new PDO('sqlite:../db/polls.db');
+		$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE ID = ?');
+		$dbPrepared->execute(array($idPoll));
+		$result = $dbPrepared->fetch();
+		$iduser = $result['IDuser'];
+		return getName($iduser);
+	}
+	// return the id of the poll. For that, the function receive an encodedid as parameter.
+	function getPollIDbyEncodedID($idPoll){
+		$db = new PDO('sqlite:../db/polls.db');
+		$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE EncodedID = ?');
+		$dbPrepared->execute(array($idPoll));
+		$result = $dbPrepared->fetch();
+		return $result['ID'];
 	}
 ?>

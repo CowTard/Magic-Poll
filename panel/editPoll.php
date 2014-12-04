@@ -7,6 +7,7 @@
 
 	$realID = $item['ID'];
 	$title = $item['Title'];
+	$closed = $item['Closed'];
 
 	$dbPrepared = $db->prepare('SELECT * FROM Options WHERE IDPoll = ?');
 	$dbPrepared->execute(array($realID));
@@ -22,6 +23,13 @@
 			</div>
 		  
 			<div class="panel-body">
+			<?php if($closed == 1) { ?>
+					<div class="alert alert-warning" role="alert"> We warned you and now you shall respect my authority! However if you really want .. send us a message or create a new one.</div>
+					<button id="goBack" type="button" ctype="button" class="btn btn-info btn-sm center-block" aria-label="Left Align">
+							<span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
+							<span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
+					</button>
+				<?php } else { ?>
 				<form method="POST" action="saveEditing.php">
 					<div class="form-group">
 						<label for="title">Title : </label>
@@ -38,15 +46,18 @@
 	
 					<div class="center-block pull-right">
 						<button id="vote" type="submit" class="btn btn-primary btn-sm btn-success">Save</button>
-						<button id="resetButton" type="button" class="btn btn-primary btn-sm btn-danger">Reset</button>
+						<button id="closePoll" value="<?= $_GET['id'] ?>" type="button" class="btn btn-primary btn-sm btn-warning" aria-label="Left Align">
+							<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+						</button>
 						<button id="removePoll" value="<?= $_GET['id'] ?>" type="button" class="btn btn-default btn-sm" aria-label="Left Align">
 							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 						</button>
 					</div>
 				</form>
+				<?php } ?>
 			</div>
 
-			<div class="panel-footer">Note: We can't allow you to add more options. That would be unfair.</div>
+			<div class="panel-footer"> <?php if(!$closed) { ?> Note: We can't allow you to add more options. That would be unfair. <?php } else { ?> The void is cold and dangerous. You shouldn't be here! For you safety, click the link above. <?php } ?></div>
 		</div>
 	</div>
 	

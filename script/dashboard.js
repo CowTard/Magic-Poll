@@ -44,11 +44,9 @@ $(document).ready( function() {
 					$(".notificationBox").html(html);
 					$(".notification").dropdown();
 				}
-
 			});
 		} return false;
 	});
-
 
 	$("input#search").on("keyup", function(e) {
     // Set Timeout
@@ -98,6 +96,12 @@ $(document).ready( function() {
 		$(location).attr('href',link);
 	});
 
+	$('#goBack').click( function(event) {
+		event.preventDefault();
+		var link = 'viewMyPolls.php';
+		$(location).attr('href',link);
+	});
+
 	$('.searcbuttons').click( function(event){
 		event.preventDefault();
 		var atributo = $(this).attr('id');
@@ -115,6 +119,28 @@ $(document).ready( function() {
 		else if ( pagina < numeroDePaginas-1 && objetivo == 'adiantamento'){
 			pagina = parseInt(pagina) + 1;
 			var link = 'search.php?page=' + pagina;
+			$(location).attr('href',link);
+		}
+
+	});
+
+	$('.votedPag-pagination').click( function(event){
+		event.preventDefault();
+		var atributo = $(this).attr('id');
+		var id = atributo.split('-');
+		var objetivo = id[0];
+		var pagina = id[1];
+		var numeroDePaginas = id[2];
+
+		if ( pagina > 0 && objetivo == 'retrocesso'){
+			pagina = parseInt(pagina) - 1;;
+			if (pagina == 0) var link = 'votedpolls.php';
+			else var link = 'votedpolls.php?page=' + pagina;
+			$(location).attr('href',link);
+		}
+		else if ( pagina < numeroDePaginas-1 && objetivo == 'adiantamento'){
+			pagina = parseInt(pagina) + 1;
+			var link = 'votedpolls.php?page=' + pagina;
 			$(location).attr('href',link);
 		}
 
@@ -150,8 +176,35 @@ $(document).ready( function() {
 		$(location).attr('href',link);
 	});
 
-	$('#removePoll').click(function() {
+	$('#closePoll').click(function() {
 		swal({   
+    	title: "Are you sure?",
+    	text: "Once closed you can't open it again! It's da law.",   
+    	type: "warning",   
+    	showCancelButton: true,   
+    	confirmButtonColor: "#DD6B55",   
+    	confirmButtonText: "Yes, I will respect your authoritah!",   
+    	closeOnConfirm: false }, 
+    	function(){
+    		$.ajax({
+    			url: 'generalFunctions.php',
+    			type: "POST",
+    			data: {secretID : $('#closePoll').val()},
+    			success:function(html){
+    				alert(html);
+    				swal("Closed!", "Your poll is now closed.", "success");
+    				var endereco = 'viewpolls.php?=' . $('#closePoll').val();
+    				$(location).attr('href',endereco);
+      			},
+      			error:function(html){
+	    			swal("Oops...", "Something went wrong :(", "error");
+      			}
+    		});
+    	});
+	});
+
+	$('#removePoll').click(function() {
+		swal({
     	title: "Are you sure?",
     	text: "You will lose all data related to this poll!",   
     	type: "warning",   
@@ -165,8 +218,8 @@ $(document).ready( function() {
     			type: "get",
     			data: 'id=' + $('#removePoll').val(),
     			success:function(data){
-    				swal("Deleted!", "Your imaginary file has been deleted.", "success");
-    				$(location).attr('href','viewAllPoll.php');
+    				swal("Deleted!", "Your poll has been deleted.", "success");
+    				$(location).attr('href','viewMyPolls.php');
       			},
       			error:function(data){
 	    			swal("Oops...", "Something went wrong :(", "error");

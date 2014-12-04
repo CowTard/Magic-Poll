@@ -24,6 +24,7 @@
 		          <ul class="dropdown-menu" role="menu">
 		            <li><a href="viewMyPolls.php">View polls</a></li>
 		            <li><a href="createPoll.php">Create polls</a></li>
+		            <li><a href="votedPolls.php">Voted polls</a></li>
 		          </ul>
 		        </li>
 		        <li class="dropdown">
@@ -38,7 +39,6 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle notification" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <span class="badge"> <?= getNotifications($_SESSION['ID']) ?> </span></a>
 					<ul class="dropdown-menu notificationBox" role="menu">
-						<!-- <li><a href="logout.php">Logout</a></li> -->
 					</ul>
 				</li>
 				<li class="dropdown">

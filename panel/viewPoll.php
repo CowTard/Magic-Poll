@@ -1,12 +1,46 @@
 <?php
 	require 'dashboard_header.php';
-  	$db = new PDO('sqlite:../db/polls.db');
+
+
+	$db = new PDO('sqlite:../db/polls.db');
+
+	// apagar notificação
+	if(isset($_GET['notification'])){
+
+		$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE EncodedID = ?');
+		$dbPrepared->execute(array($_GET['id']));
+		$notif = $dbPrepared->fetch();
+		$realID = $notif['ID'];
+
+		$dbPrepared = $db->prepare('SELECT * FROM Notifications WHERE IDPoll = ?');
+		$dbPrepared->execute(array($realID));
+		$notif = $dbPrepared->fetchAll();
+
+		$realIDnotif = -1;
+		$indice = 0;
+		foreach ($notif as $row) {
+			if ($indice == $_GET['notification']) {
+				$realIDnotif = $row['ID'];
+				break;
+			}
+			else $indice++;
+		}
+
+		// Apagar notificaçao da tabela
+		if( $realIDnotif != -1){
+			$dbPrepared = $db->prepare('DELETE FROM Notifications WHERE ID = ?');
+			$dbPrepared->execute(array($realIDnotif));
+			$dbPrepared->fetch();
+		}
+	}
+
 	$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE EncodedID = ?');
 	$dbPrepared->execute(array($_GET['id']));
 	$poll = $dbPrepared->fetch();
 	$indice = $poll['ID'];
 	$imageID = $poll['ImageName'];
 	$creatorID = $poll['IDuser'];
+	$closed = $poll['Closed'];
 
 	$dbPrepared = $db->prepare('SELECT * FROM Options WHERE IDPoll = ?');
 	$dbPrepared->execute(array($indice));
@@ -34,7 +68,9 @@
 		  		<?php if ($imageID != -1) { ?>
 		  			<img id="imagemParaVotacao" class="center-block" src="<?= '../uploadedImages/' . $imageID ?>" alt="<?= $poll['Title'] ?>" width="100px" height="100px"/>
 		  		<?php } ?>
-				
+				<?php if($closed == 1) { ?>
+					<div class="alert alert-warning" role="alert"> Argg.. This poll is already closed by her creator. You cant do nothing to her. She's a legend now!</div>
+				<?php } else { ?>
 		  		<form method="POST" action="submitAnswer.php">
 		  		<input type="hidden" name="id" value= <?= '"' . $indice . '"'?> >
 			  	<?php foreach($options as $row) { 
@@ -57,6 +93,7 @@
 					<?php } ?>
 				</div>
 				</form>
+				<?php } ?>
 		  	</div>
 		  	<div class="panel-footer">
 			<?php if ($canSeeResults) { ?>

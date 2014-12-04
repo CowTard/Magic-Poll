@@ -13,17 +13,16 @@
 		$dbPrepared->execute(array($id));
 		$result = $dbPrepared->fetchAll();
 		
+		$notificationIndice = 0;
 		$html = '';
 
 		foreach ($result as $row) {
 			$dbPrepared = $db->prepare('SELECT * FROM Poll where ID = ?');
 			$dbPrepared->execute(array($row['IDPoll']));
 			$returned = $dbPrepared->fetch();
-			$html .= '<li><a href="' . 'viewpoll.php?id=' . $returned['EncodedID'] .'">' . $row['Message'] . '</a></li>';
+			$html .= '<li><a href="viewpoll.php?id=' . $returned['EncodedID'] .'&notification=' . $notificationIndice .'">'.$row['Message'].'</a></li>';
+			$notificationIndice++;
 		}
 		echo $html;
 	} else echo 'There was an error';
-
-
-
 ?>
