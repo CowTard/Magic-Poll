@@ -31,8 +31,14 @@
 		$last_id = intval($db->lastInsertId());
 		$dbPrepared->fetchAll();
 
-		$dbPrepared = $db->prepare('UPDATE Poll SET EncodedID = ? WHERE ID = ? ');
-		$dbPrepared->execute(array(sha1($last_id),$last_id));
+		if (isset($_POST['private']) && $_POST['private'] == 'private'){
+			$dbPrepared = $db->prepare('UPDATE Poll SET EncodedID = ?, Private = ? WHERE ID = ? ');
+			$dbPrepared->execute(array(sha1($last_id),1,$last_id));
+		}
+		else{
+			$dbPrepared = $db->prepare('UPDATE Poll SET EncodedID = ? WHERE ID = ? ');
+			$dbPrepared->execute(array(sha1($last_id),$last_id));
+		}
 		$dbPrepared->fetch();
 
 		/*
@@ -43,13 +49,15 @@
 		$dbPrepared = $db->prepare('INSERT INTO Options(IDPoll,OptionText) values(?,?)');
 
 		$tamanhoPost = count($_POST);
-		$tamanhoPost = $tamanhoPost - 1;
+		$tamanhoPost = $tamanhoPost - 2;
 
 		$i = 1;
 		while($i <= $tamanhoPost){
 			$id = "Option" . $i;
-			$dbPrepared->execute(array($last_id,security($_POST[$id])));
-			$dbPrepared->fetchAll();
+			if(!security($_POST[$id]) == ''){
+				$dbPrepared->execute(array($last_id,security($_POST[$id])));
+				$dbPrepared->fetchAll();
+			}
 			$i = $i + 1;
 		}
 		header("Location: viewpoll.php?id=" . sha1($last_id));

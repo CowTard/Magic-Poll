@@ -25,10 +25,13 @@
 			<div class="panel-body">
 			<?php if($closed == 1) { ?>
 					<div class="alert alert-warning" role="alert"> We warned you and now you shall respect my authority! However if you really want .. send us a message or create a new one.</div>
-					<button id="goBack" type="button" ctype="button" class="btn btn-info btn-sm center-block" aria-label="Left Align">
+					<button id="goBack" type="button" ctype="button" class="btn btn-info btn-sm center-block inlineButtons" aria-label="Left Align">
 							<span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
 							<span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
 					</button>
+					<button id="removePoll" value="<?= $_GET['id'] ?>" type="button" class="btn btn-default btn-sm center-block inlineButtons" aria-label="Left Align">
+							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+						</button>
 				<?php } else { ?>
 				<form method="POST" action="saveEditing.php">
 					<div class="form-group">
@@ -57,7 +60,7 @@
 				<?php } ?>
 			</div>
 
-			<div class="panel-footer"> <?php if(!$closed) { ?> Note: We can't allow you to add more options. That would be unfair. <?php } else { ?> The void is cold and dangerous. You shouldn't be here! For you safety, click the link above. <?php } ?></div>
+			<div class="panel-footer"> <?php if(!$closed) { ?> <h6>Note: We can't allow you to add more options. That would be unfair.</h6> <?php } else { ?> <h6> The void is cold and dangerous. You shouldn't be here! For you safety, click the link above. </h6><?php } ?></div>
 		</div>
 	</div>
 	

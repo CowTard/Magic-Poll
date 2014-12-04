@@ -18,7 +18,7 @@
 		$indice = 1;
 	}
 
-	$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE IDuser != ? LIMIT ?,?');
+	$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE IDuser != ? AND Closed != 1 AND Private != 1 LIMIT ?,?');
 	$dbPrepared->execute(array($_SESSION['ID'],$page*$limit_per_page,$limit_per_page));
 	$item = $dbPrepared->fetchAll();
 

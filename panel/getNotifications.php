@@ -23,6 +23,10 @@
 			$html .= '<li><a href="viewpoll.php?id=' . $returned['EncodedID'] .'&notification=' . $notificationIndice .'">'.$row['Message'].'</a></li>';
 			$notificationIndice++;
 		}
+
+		if ( $html == ''){
+			$html .= '<li><a href="#"> There\' nothing to show, sorry ! :( </a></li>';
+		}
 		echo $html;
 	} else echo 'There was an error';
 ?>

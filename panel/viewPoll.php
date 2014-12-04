@@ -80,7 +80,7 @@
 				?>
 				    	<div class="radio">
 							<label>
-						    	<input type="radio" name="radioOption" id="<?= $id ?>" value="<?= $value ?>" <?= $votacao ?>> 
+						    	<input type="radio" name="radioOption" id="<?= $id ?>" required value="<?= $value ?>" <?= $votacao ?>> 
 						    	<?= $row['OptionText'] ?>
 						  	</label>
 						</div>

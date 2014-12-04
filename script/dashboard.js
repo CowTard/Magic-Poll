@@ -68,7 +68,7 @@ $(document).ready( function() {
 
 	$( "#NewOption" ).click(function() {
 		var line1 = '<div class="form-group"> <label class="sr-only col-sm-2 control-label" for="Option ' + numberNewOption + ' "> Option ' + numberNewOption + ' : </label>';
-		var line2 = '<input type="text" class="form-control" name="Option' + numberNewOption + '" id="Option' + numberNewOption + '" placeholder="Option ' + numberNewOption + '" required>';
+		var line2 = '<input type="text" class="form-control" name="Option' + numberNewOption + '" id="Option' + numberNewOption + '" placeholder="Option ' + numberNewOption + '">';
 		var finalLine = line1 + line2;
 		$(finalLine).insertBefore('#inputImage');
 		numberNewOption += 1;
@@ -186,14 +186,14 @@ $(document).ready( function() {
     	confirmButtonText: "Yes, I will respect your authoritah!",   
     	closeOnConfirm: false }, 
     	function(){
+    		var sid = $('#closePoll').val();
+    	    var endereco = 'viewpoll.php?id=' + sid;
     		$.ajax({
-    			url: 'generalFunctions.php',
+    			url: 'closePoll.php',
     			type: "POST",
-    			data: {secretID : $('#closePoll').val()},
+    			data: {secretID : sid},
     			success:function(html){
-    				alert(html);
     				swal("Closed!", "Your poll is now closed.", "success");
-    				var endereco = 'viewpolls.php?=' . $('#closePoll').val();
     				$(location).attr('href',endereco);
       			},
       			error:function(html){
@@ -213,10 +213,11 @@ $(document).ready( function() {
     	confirmButtonText: "Yes, delete it!",   
     	closeOnConfirm: false }, 
     	function(){
+    		var sid = $('#closePoll').val();
     		$.ajax({
     			url: 'removePoll.php',
     			type: "get",
-    			data: 'id=' + $('#removePoll').val(),
+    			data: 'id=' + sid,
     			success:function(data){
     				swal("Deleted!", "Your poll has been deleted.", "success");
     				$(location).attr('href','viewMyPolls.php');

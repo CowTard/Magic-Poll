@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 		$db = new PDO('sqlite:../db/polls.db');
-		$dbPrepared = $db->prepare('SELECT * FROM Poll');
+		$dbPrepared = $db->prepare('SELECT * FROM Poll where Closed != 1 AND Private != 1');
 		$dbPrepared->execute();
 		$results = $dbPrepared->fetchAll();
 

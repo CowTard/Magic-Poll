@@ -1,15 +1,5 @@
 <?php
 	
-	if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['secretID'])) {
-		$db = new PDO('sqlite:../db/polls.db');
-		$dbPrepared = $db->prepare('UPDATE Poll SET Closed = ? WHERE EncodedID = ? ');
-		$dbPrepared->execute(array('1',$_POST['secretID']));
-		$dbPrepared->fetch();
-		echo 'sucess';
-	}
-
-
-
 	function security($variavel){
 		$variavel = trim($variavel);
 		$variavel = stripslashes($variavel);
@@ -89,4 +79,25 @@
 		$result = $dbPrepared->fetch();
 		return $result['ID'];
 	}
+
+	// function that inserts notifications on users.
+
+	function notificationsToUsers($idPoll,$message){
+		$db = new PDO('sqlite:../db/polls.db');
+		$dbPrepared = $db->prepare('SELECT * FROM Votes where IDPoll = ?'); 
+		$dbPrepared->execute(array($idPoll));
+		$item = $dbPrepared->fetchAll();
+
+		$ID_arrays = array();
+		foreach ($item as $row) {
+			$ID_arrays[] = $row['IDUser'];
+		}
+
+		$dbPrepared = $db->prepare('INSERT INTO Notifications(IDPoll,IDUser,Message) values(?,?,?)');
+		foreach ($ID_arrays as $arrayOfuserID) {
+			$dbPrepared->execute(array($idPoll,$arrayOfuserID,$message));
+			$dbPrepared->fetch();
+		}
+	}
+
 ?>

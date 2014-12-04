@@ -26,6 +26,11 @@
 						<label class="sr-only col-sm-2 control-label" for="image">Image : </label>
 						<input type="file" name="image" class="form-control" />
 					</div>
+					<div class="checkbox form-group">
+						<label class="sr-only col-sm-2 control-label" for="private">Private : </label>
+					    	<input type="checkbox" id="private" name="private" value="private"> Private 
+					    </label>
+					 </div>
 					<div id="creatingPollButtons" class="center-block pull-right">
 						<button type="submit" class="btn btn-primary btn-sm btn-success"> Submit </button>
 						<button id="NewOption" type="button" class="btn btn-primary btn-sm btn-danger">New option</button>
@@ -33,6 +38,7 @@
 				</form>
 			</div>
 		</div>
+		<div class="panel-footer"> <h6> As a side note, if you really want to make your poll exclusive why not make her private ? </h6></div>
 	</div>
 	</div>
 
