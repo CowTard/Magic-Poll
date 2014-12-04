@@ -17,15 +17,16 @@
 		$notif = $dbPrepared->fetchAll();
 
 		$realIDnotif = -1;
+		$notification_to_delete = intval($_GET['notification']);
 		$indice = 0;
 		foreach ($notif as $row) {
-			if ($indice == $_GET['notification']) {
+			if ($indice == $notification_to_delete) {
 				$realIDnotif = $row['ID'];
+				$indice++;
 				break;
 			}
 			else $indice++;
 		}
-
 		// Apagar notificaçao da tabela
 		if( $realIDnotif != -1){
 			$dbPrepared = $db->prepare('DELETE FROM Notifications WHERE ID = ?');

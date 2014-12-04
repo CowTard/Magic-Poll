@@ -1,3 +1,9 @@
+var pathname = window.location.pathname;
+var pathnameSplitted = pathname.split('?');
+var endereco = pathnameSplitted[0];
+
+  if( endereco.toUpperCase() == "/LTW/panel/viewpoll.php".toUpperCase()) {
+
         google.load("visualization", "1", {packages:["corechart"]});
 
       	var url = window.location.href;
@@ -39,4 +45,5 @@
       			}
       		});
         };
-        
+  }
+  else {};

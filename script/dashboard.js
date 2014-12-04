@@ -28,6 +28,33 @@ $(document).ready( function() {
 		$(".notification").dropdown();
 	});
 
+	$('#contact-form').submit( function(){ 
+		$.ajax({
+           type: "POST",
+           url: "sendEmail.php",
+           data: $("#contact-form").serialize(), // serializes the form's elements.
+           success: function(data)
+           {	
+           	    $('#confirmation_of_email_sent').removeAttr('style');
+           		$('#confirmation_of_email_sent').html('');
+           		$('#confirmation_of_email_sent').html('<div id="sucess" class="alert alert-success" role="alert"> <p class="text-center">Awesome! Your email was sent. We will see it as soon as possible</p></div>');
+           		$("#contact-form").trigger("reset");
+           		$('#modalform').modal('toggle');
+           		$('#confirmation_of_email_sent').fadeOut(5000);
+           },
+           error: function(data)
+           {	
+           	    $('#confirmation_of_email_sent').removeAttr('style');
+           		$('#confirmation_of_email_sent').html('');
+           		$('#confirmation_of_email_sent').html('<div id="error" class="alert alert-danger" role="alert"> Oh no.. It can\' be. We fail again (?) . </div>');
+           		$("#contact-form").trigger("reset");
+           		$('#modalform').modal('toggle');
+           		$('#confirmation_of_email_sent').fadeOut(5000);
+           }
+         });
+
+    return false; // avoid to execute the actual submit of the form.
+	});
 	/*
 	 SE APENAS CONTIVESSE .CLICK DAVA UM ERRO CONHECIDO DO BOOTSTRAP O QUE OBRIGARIA O UTILIZADOR A CLICAR DUAS VEZES.
 	*/

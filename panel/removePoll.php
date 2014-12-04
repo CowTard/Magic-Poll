@@ -29,5 +29,11 @@
 		$dbPrepared->execute(array($realID));
 		$item = $dbPrepared->fetch();
 
+		// APAGAR REGISTO NA TABELA NOTIFICATIONS
+
+		$dbPrepared = $db->prepare('DELETE FROM Notifications WHERE IDPoll = ?');
+		$dbPrepared->execute(array($realID));
+		$item = $dbPrepared->fetch();
+
 	}
 ?>

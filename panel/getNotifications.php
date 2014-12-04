@@ -25,7 +25,7 @@
 		}
 
 		if ( $html == ''){
-			$html .= '<li><a href="#"> There\' nothing to show, sorry ! :( </a></li>';
+			$html .= '<li><a href="#"> There\'s nothing to show, sorry! :(</a></li>';
 		}
 		echo $html;
 	} else echo 'There was an error';
