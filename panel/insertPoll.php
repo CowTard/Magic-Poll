@@ -49,7 +49,9 @@
 		$dbPrepared = $db->prepare('INSERT INTO Options(IDPoll,OptionText) values(?,?)');
 
 		$tamanhoPost = count($_POST);
-		$tamanhoPost = $tamanhoPost - 2;
+		if( isset($_POST['private']) && $_POST['private'] == 'private')
+			$tamanhoPost = $tamanhoPost - 2;
+		else $tamanhoPost = $tamanhoPost - 1;
 
 		$i = 1;
 		while($i <= $tamanhoPost){

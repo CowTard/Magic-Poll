@@ -213,7 +213,7 @@ $(document).ready( function() {
     	confirmButtonText: "Yes, delete it!",   
     	closeOnConfirm: false }, 
     	function(){
-    		var sid = $('#closePoll').val();
+    		var sid = $('#removePoll').val();
     		$.ajax({
     			url: 'removePoll.php',
     			type: "get",

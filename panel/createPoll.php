@@ -26,10 +26,9 @@
 						<label class="sr-only col-sm-2 control-label" for="image">Image : </label>
 						<input type="file" name="image" class="form-control" />
 					</div>
-					<div class="checkbox form-group">
-						<label class="sr-only col-sm-2 control-label" for="private">Private : </label>
-					    	<input type="checkbox" id="private" name="private" value="private"> Private 
-					    </label>
+					<div class="checkbox">
+						<label class="sr-only col-sm-2 control-label" for="private"></label>
+					    <input type="checkbox" id="private" name="private" value="private"> Private 
 					 </div>
 					<div id="creatingPollButtons" class="center-block pull-right">
 						<button type="submit" class="btn btn-primary btn-sm btn-success"> Submit </button>

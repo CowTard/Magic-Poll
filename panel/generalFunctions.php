@@ -71,6 +71,25 @@
 		$iduser = $result['IDuser'];
 		return getName($iduser);
 	}
+
+	// return either the poll is closed or open.
+	function getClosed($idPoll){
+		$db = new PDO('sqlite:../db/polls.db');
+		$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE ID = ?');
+		$dbPrepared->execute(array($idPoll));
+		$result = $dbPrepared->fetch();
+		return $result['Closed'];
+	}
+
+	// return either the poll is private or not.
+	function getPrivate($idPoll){
+		$db = new PDO('sqlite:../db/polls.db');
+		$dbPrepared = $db->prepare('SELECT * FROM Poll WHERE ID = ?');
+		$dbPrepared->execute(array($idPoll));
+		$result = $dbPrepared->fetch();
+		return $result['Private'];
+	}
+
 	// return the id of the poll. For that, the function receive an encodedid as parameter.
 	function getPollIDbyEncodedID($idPoll){
 		$db = new PDO('sqlite:../db/polls.db');

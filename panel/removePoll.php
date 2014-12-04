@@ -12,7 +12,7 @@
 		
 		// ELIMINAR IMAGEM ASSOCIADA
 		$imagename = $item['ImageName'];
-		unlink('../uploadedImages/' . $imagename);
+		if ($imagename != '-1') unlink('../uploadedImages/' . $imagename);
 
 		// APAGAR REGISTO NA TABELA POLL
 		$dbPrepared = $db->prepare('DELETE FROM Poll WHERE EncodedID = ?');
@@ -28,5 +28,6 @@
 		$dbPrepared = $db->prepare('DELETE FROM Votes WHERE IDPoll = ?');
 		$dbPrepared->execute(array($realID));
 		$item = $dbPrepared->fetch();
+
 	}
 ?>

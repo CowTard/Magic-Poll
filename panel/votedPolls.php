@@ -34,6 +34,7 @@
 		  	<th>Title</th>
 		  	<th>Votes</th>
 		  	<th>Closed</th>
+		  	<th>#</th>
 		  	<th>Go</th>
 		  	</tr>
 		  </thead>
@@ -49,7 +50,12 @@
 	  			<?php } ?>
 	  			<td><?= getTitle($row['IDPoll']) ?></td>
 				<td><?= getVotes($row['IDPoll']) ?></td>
-				<td>#</td>
+				<td><?= getClosed($row['IDPoll']) == '1' ? 'YES' : 'NO'  ?></td>
+				<?php if(getPrivate($row['IDPoll']) == '1') {?>
+	  				<td><span class="glyphicon glyphicon-eye-close" aria-hidden="true">' </span></td>
+	  			<?php } else { ?> 
+	  				<td><span class="glyphicon glyphicon-eye-open" aria-hidden="true">' </span></td>
+	  			<?php } ?>
 	  			<td><form action="viewPoll.php" method="GET">
 	  					<input type="hidden" name="id" value="<?= sha1($row['ID']) ?>">
 	  					<button type="submit" class="btn btn-default btn-sm" aria-label="Left Align">
