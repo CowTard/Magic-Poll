@@ -12,8 +12,10 @@
 	<head>
 		<title>MagicPoll - A bit of magic in your poll</title>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/main.css">
+		<link rel="stylesheet" type="text/css" href="../css/sweet-alert.css">
 	</head>
-
 	<body>
 		<div class="content">
 			<nav class="navbar navbar-default navbar-static-top" role="navigation">
@@ -48,6 +50,8 @@
 								<li><a href="logout.php">Logout</a></li>
 							</ul>
 						</li>
+					</ul>
 				</div>
 			</nav>
-						<div id="confirmation_of_email_sent"></div>
+			
+			<div id="confirmation_of_email_sent"></div>
