@@ -50,3 +50,4 @@
 						</li>
 				</div>
 			</nav>
+						<div id="confirmation_of_email_sent"></div>
