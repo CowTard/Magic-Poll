@@ -1,7 +1,5 @@
-<!--?php echo('Hello World!'); ?-->
-<?php 
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+<?php
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		
 		$search_string = preg_replace("/[^A-Za-z0-9]/", " ", $_POST['query']);
 

@@ -19,19 +19,19 @@
 	<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title text-center">Editing: '<?= $title; ?>'</h3>
+				<h3 class="panel-title text-center">Editing '<?= $title; ?>'</h3>
 			</div>
 		  
 			<div class="panel-body">
 			<?php if($closed == 1) { ?>
-					<div class="alert alert-warning" role="alert"> We warned you and now you shall respect my authority! However if you really want .. send us a message or create a new one.</div>
+					<div class="alert alert-warning" role="alert">We warned you and now you shall respect our authority! However, if you really want it... send us a message or create a new one.</div>
 					<button id="goBack" type="button" ctype="button" class="btn btn-info btn-sm center-block inlineButtons" aria-label="Left Align">
 							<span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
 							<span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
 					</button>
 					<button id="removePoll" value="<?= $_GET['id'] ?>" type="button" class="btn btn-default btn-sm center-block inlineButtons" aria-label="Left Align">
 							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-						</button>
+					</button>
 				<?php } else { ?>
 				<form method="POST" action="saveEditing.php">
 					<div class="form-group">
@@ -45,8 +45,8 @@
 							<label for="<?= $row['ID'] ?>">Option <?= $option ?></label>
 							<input type="text" class="form-control" id="title" name ="<?= $row['ID'] ?>" value="<?= $row['OptionText'] ?>" required>
 						</div>
-					<?php $option++ ;} ?>
-	
+					<?php $option++; } ?>
+					
 					<div class="center-block pull-right">
 						<button id="vote" type="submit" class="btn btn-primary btn-sm btn-success">Save</button>
 						<button id="closePoll" value="<?= $_GET['id'] ?>" type="button" class="btn btn-primary btn-sm btn-warning" aria-label="Left Align">
@@ -59,8 +59,8 @@
 				</form>
 				<?php } ?>
 			</div>
-
-			<div class="panel-footer"> <?php if(!$closed) { ?> <h6>Note: We can't allow you to add more options. That would be unfair.</h6> <?php } else { ?> <h6> The void is cold and dangerous. You shouldn't be here! For you safety, click the link above. </h6><?php } ?></div>
+			
+			<div class="panel-footer"> <?php if(!$closed) { ?> <h6>Note: We can't allow you to add more options. That would be unfair.</h6> <?php } else { ?> <h6>The void is cold and dangerous. You shouldn't be here! For your safety, click the link above.</h6><?php } ?></div>
 		</div>
 	</div>
 	

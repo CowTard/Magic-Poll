@@ -73,10 +73,10 @@
 		  			<img id="imagemParaVotacao" class="center-block" src="<?= '../uploadedImages/' . $imageID ?>" alt="<?= $poll['Title'] ?>" width="100px" height="100px"/>
 		  		<?php } ?>
 				<?php if($closed == 1) { ?>
-					<div class="alert alert-warning" role="alert"> Argg.. This poll is already closed by her creator. You cant do nothing to her. She's a legend now!</div>
+					<div class="alert alert-warning" role="alert">Argh.. This poll is already closed by its creator. You can't do nothing to it. It's a legend now!</div>
 				<?php } else { 
 					if ( $notification_alert) { $votacao = ''; ?>
-						<div class="alert alert-warning" role="alert"> It seems that the creator of this poll modified this poll. You can change your vote now.</div>
+						<div class="alert alert-warning" role="alert">It seems that the creator of this poll edited this poll. You can change your vote now.</div>
 						<?php } ?>
 		  		<form method="POST" action="submitAnswer.php">
 		  		<input type="hidden" name="id" value= <?= '"' . $indice . '"'?> >

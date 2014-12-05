@@ -15,7 +15,7 @@
 			$extension = end((explode(".", $name)));
 
 			if ( $extension != 'png' && $extension != 'jpeg' && $extension != 'jpg' && $extension != 'gif'){
-				$_SESSION['errorImage'] = 'That extension is not allowed to upload. We\' are so sorry.';
+				$_SESSION['errorImage'] = 'That extension is not allowed to upload. We\'re so sorry.';
 				header("Location: createPoll.php");
 				exit;
 			}

@@ -34,8 +34,7 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Other polls<span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="search.php">Show all polls</a></li>
-								<li><a href="searchpoll.php">Quick search</a></li>
-								<li><a href="fullsearch.php">Full search</a></li>
+								<li><a href="searchpoll.php">Search polls</a></li>
 							</ul>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">

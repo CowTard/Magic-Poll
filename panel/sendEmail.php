@@ -1,5 +1,4 @@
 <?php
-
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 		$to = 'ei12076@fe.up.pt';
@@ -18,5 +17,4 @@
     	echo "SUCESS";
 	}
 	else echo "FAIL";
-
 ?>

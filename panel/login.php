@@ -17,13 +17,13 @@
     		header("Location: dashboard.php");
 		} else {
 			session_start();
-			$_SESSION['errorLog'] = 'Oops... Something went wrong. Check your username and password';
+			$_SESSION['errorLog'] = 'Oops... Something went wrong. Check your username and password.';
 			$_SESSION['page'] = 'login';
     		header("Location: ..");
 		}
 	}
 	else {
-		echo "Sorry but something went wrong.";
+		echo "Sorry, but something went wrong.";
 		header("Location: ..");
 	}
 ?>

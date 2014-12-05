@@ -18,9 +18,8 @@
 				<div class="container">
 					<ul class="nav navbar-nav">
 						<li class="active"><a href=".">Home</a></li>
-						<li><a href="#">Features</a></li>
-						<li><a href="#">About us</a></li>
-						<li><a href="#">Support</a></li>
+						<li><a href="features.php">Features</a></li>
+						<li><a href="aboutus.php">About us</a></li>
 					</ul>
 					<p class="navbar-text navbar-right"><a href="." class="navbar-link" id="login-link">Login</a> or <a href="register.php" class="navbar-link" id="register-link">Register</a></p>
 				</div>
@@ -113,7 +112,7 @@
 		<div class="footer">
 		   <div class="container">
 			  <p class="text-center"><a data-toggle="modal" data-target="#modalform" href="#">[Support]</a>
-			  <p class="text-center">© MagicPoll 2014 <a href="www.fe.up.pt">MIEIC@FEUP</a></p>
+			  <p class="text-center">&copy; MagicPoll 2014 <a href="http://fe.up.pt/">MIEIC@FEUP</a></p>
 		   </div>
 		</div>
 		

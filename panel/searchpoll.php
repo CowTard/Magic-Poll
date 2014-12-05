@@ -1,8 +1,4 @@
-<?php
-	require 'dashboard_header.php';
-
-?>
-
+<?php require 'dashboard_header.php'; ?>
 
 <div class="icon"></div>
 	<h1 class="title">Search for a poll</h1>
@@ -13,6 +9,4 @@
 		<ul id="results" class="dropdown-menu quicksearch" role="menu"></ul>
 	</div>
 
-<?php
-	require 'dashboard_footer.php';
-?>
+<?php require 'dashboard_footer.php'; ?>

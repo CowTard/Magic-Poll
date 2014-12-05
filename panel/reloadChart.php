@@ -1,5 +1,4 @@
 <?php
-
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$db = new PDO('sqlite:../db/polls.db');
 		$dbPrepared = $db->prepare('SELECT * FROM Poll where EncodedID = ?');

@@ -17,8 +17,8 @@
 			<nav class="navbar navbar-default navbar-static-top" role="navigation">
 				<div class="container">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href=".">Home</a></li>
-						<li><a href="features.php">Features</a></li>
+						<li><a href=".">Home</a></li>
+						<li class="active"><a href="features.php">Features</a></li>
 						<li><a href="aboutus.php">About us</a></li>
 					</ul>
 					<p class="navbar-text navbar-right"><a href="." class="navbar-link" id="login-link">Login</a> or <a href="register.php" class="navbar-link" id="register-link">Register</a></p>
@@ -26,69 +26,33 @@
 			</nav>
 			
 			<div id="confirmation_of_email_sent"></div>
-			
-			<div class="container-fluid">
-				<div class="col-md-12 text-center">
-					<p><img src="images/logo.png" alt="Site Logo" /></p>
-					<h1>MagicPoll</h1>
-				</div>
-				
-				<div id="register-form" class="col-sm-6 col-md-4 col-md-offset-4">
-				<?php if( isset($_SESSION['errorReg'])) {
-					echo '<div id="error" class="alert alert-danger" role="alert"> ' . $_SESSION['errorReg'] . '</div>'; 
-					unset($_SESSION['errorReg']);
-					}
-				?>
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">Sign up</h3>
-						</div>
-						<div class="panel-body">
-							<div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"> 
-								<form class="form-horizontal" role="form" action="./panel/register.php" method="POST">
-									<div class="form-group">
-										<div class="input-group">
-											<span class="input-group-addon">
-												<i class="glyphicon glyphicon-user"></i>
-											</span> 
-											<input type="text" class="form-control" name="username" id="Username" placeholder="Username" required>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="input-group">
-												<span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
-											<input type="email" class="form-control" name="email" id="Email" placeholder="Email">
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="input-group">
-											<span class="input-group-addon">
-												<i class="glyphicon glyphicon-lock"></i>
-											</span>
-											<input type="password" class="form-control" name="password" id="Password" placeholder="Password">
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="input-group">
-											<span class="input-group-addon">
-												<i class="glyphicon glyphicon-lock"></i>
-											</span>
-											<input type="password" class="form-control" name="passwordConfirmation" id="PasswordConfirm" placeholder="Retype password">
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="g-recaptcha" data-sitekey="6Ld7sf4SAAAAAJX-UAL3J-mbHcMrN2LEsz3xYac8"></div>
-									</div>
-									<div class="form-group">
-										<button type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		<div class="push"></div>
+            
+            <div class="container-fluid">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <h2>Features</h2>
+                            <p><strong>MagicPoll</strong> supports the following features:</p>
+                            <ul>
+                                <li>User accounts</li>
+                                <li>Create polls</li>
+                                <ul>
+                                    <li>Public or private</li>
+                                    <li>Possibility of adding an image</li>
+                                    <li>A poll may be closed by its creator</li>
+                                </ul>
+                                <li>View results in a pie chart</li>
+                                <li>View and vote on others' polls</li>
+                                <li>Get notified of changes in polls you've previously voted on</li>
+                                <li>Search within the poll database</li>
+                                <li>Contact the developers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="push"></div>
 		</div>
 		
 		<!-- Modal for contact form -->
@@ -135,6 +99,5 @@
 		
 		<script src="../script/jquery-1.11.1.min.js"></script>
 		<script src="../script/bootstrap.min.js"></script>
-		<script src="https://www.google.com/recaptcha/api.js"></script>
 	</body>
 </html>

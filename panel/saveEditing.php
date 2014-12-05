@@ -17,7 +17,7 @@
 		*/
 
 			// Search for the members that vote in this poll
-		$message = '"' . $_POST['title'] . '" was changed.'; 
+		$message = '"' . $_POST['title'] . '" was edited.'; 
 		notificationsToUsers($_POST['idPoll'],$message);
 	
 		header('Location: viewMyPolls.php');
