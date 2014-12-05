@@ -9,6 +9,11 @@
 		  <div class="panel-body">
 		  		
 			<div id="pollBox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+				<?php if( isset($_SESSION['errorImage'])) {
+					echo '<div id="error" class="alert alert-danger" role="alert"> ' . $_SESSION['errorImage'] . '</div>'; 
+					unset($_SESSION['errorImage']);
+					}
+				?>
 				<form class="form-horizontal" role="form" action="insertPoll.php" method="POST" enctype="multipart/form-data">
 					<div class="form-group">
 						<label class="sr-only col-sm-2 control-label" for="Title">Title : </label>

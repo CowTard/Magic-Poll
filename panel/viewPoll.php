@@ -4,6 +4,8 @@
 
 	$db = new PDO('sqlite:../db/polls.db');
 
+	$notification_alert = false;
+
 	// apagar notificação
 	if(isset($_GET['notification'])){
 
@@ -32,6 +34,7 @@
 			$dbPrepared = $db->prepare('DELETE FROM Notifications WHERE ID = ?');
 			$dbPrepared->execute(array($realIDnotif));
 			$dbPrepared->fetch();
+			$notification_alert = true;
 		}
 	}
 
@@ -71,7 +74,10 @@
 		  		<?php } ?>
 				<?php if($closed == 1) { ?>
 					<div class="alert alert-warning" role="alert"> Argg.. This poll is already closed by her creator. You cant do nothing to her. She's a legend now!</div>
-				<?php } else { ?>
+				<?php } else { 
+					if ( $notification_alert) { $votacao = ''; ?>
+						<div class="alert alert-warning" role="alert"> It seems that the creator of this poll modified this poll. You can change your vote now.</div>
+						<?php } ?>
 		  		<form method="POST" action="submitAnswer.php">
 		  		<input type="hidden" name="id" value= <?= '"' . $indice . '"'?> >
 			  	<?php foreach($options as $row) { 

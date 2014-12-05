@@ -12,7 +12,14 @@
 		if ($_FILES['image']['size'] != 0 && $_FILES['image']['error'] == 0) {
 			$sha1randomNameForImage = '';
 			$name = $_FILES["image"]["name"];
-			$extension = end((explode(".", $name))); # extra () to prevent notice
+			$extension = end((explode(".", $name)));
+
+			if ( $extension != 'png' && $extension != 'jpeg' && $extension != 'jpg' && $extension != 'gif'){
+				$_SESSION['errorImage'] = 'That extension is not allowed to upload. We\' are so sorry.';
+				header("Location: createPoll.php");
+				exit;
+			}
+
 			$characters = "0123456789abcdefghijklmnopqrstuvwxyz";
 	    	for ($p = 0; $p < 30; $p++)
 	        	$sha1randomNameForImage .= $characters[mt_rand(0, strlen($characters) - 1)];

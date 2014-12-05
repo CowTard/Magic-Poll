@@ -31,6 +31,7 @@ var endereco = pathnameSplitted[0];
       			cache: false,
       			success: function(data)
             {
+              
       				result = data;
               
               var graphData = google.visualization.arrayToDataTable(JSON.parse(result));
