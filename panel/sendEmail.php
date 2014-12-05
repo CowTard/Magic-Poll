@@ -2,7 +2,7 @@
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-		$to = 'ei12076@fe.up.pt';
+		$to = 'ei12109@fe.up.pt';
 		$from = $_POST['email']; // this is the sender's Email address
     	$first_name = $_POST['name'];
 	    $subject = "[MAGICPOLL] " . $_POST['subject'];
